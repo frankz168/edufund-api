@@ -4,10 +4,10 @@ header("Content-type: application/json");
 include_once '../Database/database.php';
 include_once '../Controller/users.php';
 
-$email=$_GET['email'];
-$password=$_GET['password'];
-/*$email = 'angela@gmail.com';
-$password = 'angel';*/
+/*$email=$_GET['email'];
+$password=$_GET['password'];*/
+$email = 'angela@gmail.com';
+$password = 'angel';
 
 // get database connection
 $database = new Database();
