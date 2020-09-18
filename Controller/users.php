@@ -37,15 +37,15 @@ class Users
     }
 
     // reset password user
-    public function resetPassword($acc_id, $password){
+    public function resetPassword($email, $password){
         // call sp for reset password
         try {
             require_once '../Database/database.php';
-            $query = ("CALL ResetPassword('$acc_id','$password')") ;
+            $query = ("CALL ResetPassword('$email','$password')") ;
             // prepare query statement
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
-            $stmt->bindParam('acc_id',$acc_id);
+            $stmt->bindParam('email',$email);
             $stmt->bindParam('password',$password);
             return $stmt;
 

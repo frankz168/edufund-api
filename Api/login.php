@@ -8,7 +8,7 @@ include_once '../Controller/users.php';
 $email=$_GET['email'];
 $password=$_GET['password'];
 /*$email = 'angela@gmail.com';
-$password = 'angel';*/
+$password = 'angela123';*/
 
 // get database connection
 $database = new Database();

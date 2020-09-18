@@ -5,10 +5,10 @@ include_once '../Database/database.php';
 include_once '../Controller/users.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
-$acc_id=$data['acc_id'];
+$email=$data['email'];
 $password=$data['password'];
 
-/*$acc_id = '1';
+/*$email = 'angela@gmail.com';
 $password = 'angel123';*/
 
 // get database connection
@@ -16,7 +16,7 @@ $database = new Database();
 $db = $database->getConnection();
 // prepare user object
 $user = new Users($db);
-$stmt = $user->resetPassword($acc_id, $password);
+$stmt = $user->resetPassword($email, $password);
     if($stmt->rowCount() > 0){
         // create array
         $respass_arr=array(
