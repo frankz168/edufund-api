@@ -15,8 +15,17 @@ $password = 'angel123';*/
 $database = new Database();
 $db = $database->getConnection();
 // prepare user object
+
+//generate password to sh 256 with salt
+// Idea of salt is to make users password longer
+// so that it's not vulnerable to attacks like http://en.wikipedia.org/wiki/Rainbow_table
+
+$salt = "EduFund__asdSdas";
+// Users password will now be combined (password+salt) to sha256 hash
+$finalpassword = hash('sha256', $salt.$password);
+
 $user = new Users($db);
-$stmt = $user->resetPassword($email, $password);
+$stmt = $user->resetPassword($email, $finalpassword);
     if($stmt->rowCount() > 0){
         // create array
         $respass_arr=array(

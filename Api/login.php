@@ -8,14 +8,18 @@ include_once '../Controller/users.php';
 $email=$_GET['email'];
 $password=$_GET['password'];
 /*$email = 'angela@gmail.com';
-$password = 'angela123';*/
+$password = 'angel123';*/
+
+//decryption sha256 password
+$salt = "EduFund__asdSdas";
+$finalpassword = hash('sha256', $salt.$password);
 
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
 // prepare user object
 $user = new Users($db);
-$stmt = $user->login($email, $password);
+$stmt = $user->login($email, $finalpassword);
 if($stmt->rowCount() > 0){
     // get retrieved row
     while($row = $stmt->fetch())
