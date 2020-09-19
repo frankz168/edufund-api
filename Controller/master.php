@@ -48,4 +48,23 @@ class Master
         }
 
     }
+
+    // call sp get data all product
+    public function GetDataAllProduct(){
+        // select all query
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL GetDataAllProduct()") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+
+    }
 }

@@ -7,28 +7,29 @@ include_once '../Controller/master.php';
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
-// prepare province object
-$province = new Master($db);
-$stmt = $province->GetDataAllProvince();
+// prepare product object
+$product = new Master($db);
+$stmt = $product->GetDataAllProduct();
 if($stmt->rowCount() > 0){
     // get retrieved row
     while($row = $stmt->fetch())
     {
         // create array
-        $province_arr[]=array(
-            "province_id" => $row['Province_ID'],
-            "province_name" => $row['Province_Name']
+        $product_arr[]=array(
+            "product_id" => $row['product_id'],
+            "product_name" => $row['product_name'],
+            "status" => $row['status']
         );
     }
 
     //print_r($province_arr);
 }
 else{
-    $province_arr=array(
-        "message" => "Invalid Get Data Province!",
+    $product_arr=array(
+        "message" => "Invalid Get Data Product!",
     );
 }
 // make it json format
-print_r(json_encode($province_arr));
+print_r(json_encode($product_arr));
 
 ?>
