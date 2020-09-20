@@ -3,13 +3,17 @@ header("Content-type: application/json");
 //include_once "Database/koneksi.php";
 include_once '../Database/database.php';
 include_once '../Controller/users.php';
+include_once '../Controller/common.php';
 
+
+$common = new Common();
 $data = json_decode(file_get_contents('php://input'), true);
+
 $email=$data['email'];
-$password=$data['password'];
+$password= $common->generateRandomPassword(10);
 
 /*$email = 'angela@gmail.com';
-$password = 'angel123';*/
+$password = $common->generateRandomPassword(10);*/
 
 // get database connection
 $database = new Database();
