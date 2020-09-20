@@ -67,4 +67,23 @@ class Master
         }
 
     }
+
+    // call sp get data all loan status
+    public function GetDataAllLoanStatus(){
+        // select all query
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL GetDataAllLoanStatus()") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+
+    }
 }
