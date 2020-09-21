@@ -55,4 +55,25 @@ class Users
             print_r($e->getMessage());
         }
     }
+
+    // sign up user
+    public function signUpAccount($email, $password, $phonenumber){
+        // call sp for sign up Account
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL SignUpAccount('$email','$password', '$phonenumber')") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            $stmt->bindParam('password',$password);
+            $stmt->bindParam('password',$phonenumber);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
 }

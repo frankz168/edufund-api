@@ -22,7 +22,6 @@ $db = $database->getConnection();
 
 //generate password to sh 256 with salt
 // Idea of salt is to make users password longer
-// so that it's not vulnerable to attacks like http://en.wikipedia.org/wiki/Rainbow_table
 
 $salt = "EduFund__asdSdas";
 // Users password will now be combined (password+salt) to sha256 hash
