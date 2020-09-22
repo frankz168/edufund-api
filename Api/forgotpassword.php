@@ -9,11 +9,11 @@ include_once '../Controller/common.php';
 $common = new Common();
 $data = json_decode(file_get_contents('php://input'), true);
 
-$email=$data['email'];
-$password= $common->generateRandomPassword(10);
+/*$email=$data['email'];
+$password= $common->generateRandomPassword(10);*/
 
-/*$email = 'angela@gmail.com';
-$password = $common->generateRandomPassword(10);*/
+$email = 'jovita.sutanto97@gmail.com';
+$password = $common->generateRandomPassword(10);
 
 // get database connection
 $database = new Database();
@@ -31,6 +31,8 @@ $user = new Users($db);
 $stmt = $user->resetPassword($email, $finalpassword);
 if($stmt->rowCount() > 0){
     // create array
+    $emailMessage = "Hello," . $email ."<br>"."You have requested to reset your password." . "<br>". "Your new password is:" . $password . "<br>". "Contact our support team if you are still having issues logging in." . "<br>". "Regards The Edufund Team";
+    $common -> sendEmail($email, 'Edufund Auto Mail', 'Forgot Password', $emailMessage);
     $respass_arr=array(
         "success" => 1,
         "message" => "Successfully Reset Password!"
