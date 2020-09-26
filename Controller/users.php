@@ -76,4 +76,24 @@ class Users
             print_r($e->getMessage());
         }
     }
+
+    // update status success verification account
+    public function UpdateSuccessVerificationAccount($email, $status){
+        // call sp for reset password
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL UpdateStatusAccount('$email','$status')") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            $stmt->bindParam('status',$status);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
 }
