@@ -9,11 +9,11 @@ include_once '../Controller/common.php';
 $common = new Common();
 $data = json_decode(file_get_contents('php://input'), true);
 
-/*$email=$data['email'];
-$password= $common->generateRandomPassword(10);*/
+$email=$data['email'];
+$password= $common->generateRandomPassword(10);
 
-$email = 'jovita.sutanto97@gmail.com';
-$password = $common->generateRandomPassword(10);
+/*$email = 'jovita.sutanto97@gmail.com';
+$password = $common->generateRandomPassword(10);*/
 
 // get database connection
 $database = new Database();

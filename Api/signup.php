@@ -12,7 +12,7 @@ $email=$data['email'];
 $password=$data['password'];
 $phonenumber = $data['phonenumber'];
 
-/*$email = 'jovita.sutanto97@gmail.com';
+/*$email = 'franky.sutanto93@gmail.com';
 $password = 'admin123';
 $phonenumber = '124';*/
 

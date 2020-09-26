@@ -30,7 +30,7 @@ CREATE TABLE `account` (
   `status` varchar(55) NOT NULL,
   `attempt_login_count` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`acc_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active',0),(2,'jacky123','jacky@gmail.com',89632332,'Active',0),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active',0),(6,'5c3e2dd2ae929e940165b86f811e0f4f1eae8c89bc5a2ba1dc2337a','jovita.sutanto97@gmail.com',215451677,'Active',0),(18,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active',0),(19,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','jovita.sutanto97@gmail.com',124,'Disactive',0);
+INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active',0),(2,'jacky123','jacky@gmail.com',89632332,'Active',0),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active',0),(6,'5c3e2dd2ae929e940165b86f811e0f4f1eae8c89bc5a2ba1dc2337a','jovita.sutanto97@gmail.com',215451677,'Active',0),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active',0),(76,'admin123','squall93@gmail.com',12345,'Disactive',0),(77,'admin123','tidus93@gmail.com',12345,'Disactive',0),(79,'admin123','yuna93@gmail.com',123458,'Disactive',0);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -543,9 +543,13 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SignUpAccount`(IN `email` VARCHAR(55), IN `password` VARCHAR(55), IN `phone_number` VARCHAR(55))
 BEGIN
-INSERT INTO account(email, password, phone_number, status)
-VALUES(email, password, phone_number, 'Disactive');
-
+        INSERT INTO account (email, password, phone_number, status)
+		SELECT * FROM (SELECT email, password, phone_number, 'Disactive') AS tmp
+		WHERE NOT EXISTS (
+			SELECT account.email FROM account 
+            WHERE account.email = email 
+            OR account.phone_number = phone_number
+		) LIMIT 1;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -593,4 +597,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-26 19:05:52
+-- Dump completed on 2020-09-26 22:03:28

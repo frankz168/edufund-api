@@ -25,11 +25,11 @@ $user = new Users($db);
 $status = "Active";
 $stmt = $user->UpdateSuccessVerificationAccount($email, $status);
 if($stmt->rowCount() > 0){
-    header("Location:  http://localhost:63342/edufund-api/Api/verificationsuccess.php");
+    header("Location:  http://localhost:63342/edufund-api/Pages/verificationsuccess.php");
     /*   header("Location:  http://google.com");*/
 }
 else{
-    header("Location:  http://localhost:63342/edufund-api/Api/verificationfailed.php");
+    header("Location:  http://localhost:63342/edufund-api/Pages/verificationfailed.php");
 }
 
 return;

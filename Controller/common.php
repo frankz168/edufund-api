@@ -36,7 +36,7 @@ class common
         $mail->SMTPAuth = true;
         //Provide username and password
         $mail->Username = "jovita.sutanto97@gmail.com";   //nama-email smtp
-        $mail->Password = "-------------";           //password email smtp
+        $mail->Password = "--------------";           //password email smtp
         //If SMTP requires TLS encryption then set it
         $mail->SMTPSecure = "tsl";
         //Set TCP port to connect to
