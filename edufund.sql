@@ -30,7 +30,7 @@ CREATE TABLE `account` (
   `status` varchar(55) NOT NULL,
   `attempt_login_count` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`acc_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active',0),(2,'jacky123','jacky@gmail.com',89632332,'Active',0),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active',0),(6,'5c3e2dd2ae929e940165b86f811e0f4f1eae8c89bc5a2ba1dc2337a','jovita.sutanto97@gmail.com',215451677,'Active',0),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active',0),(76,'admin123','squall93@gmail.com',12345,'Disactive',0),(77,'admin123','tidus93@gmail.com',12345,'Disactive',0),(79,'admin123','yuna93@gmail.com',123458,'Disactive',0);
+INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active',0),(2,'jacky123','jacky@gmail.com',89632332,'Active',0),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active',0),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active',0),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active',0),(76,'admin123','squall93@gmail.com',12345,'Disactive',0),(77,'admin123','tidus93@gmail.com',12345,'Disactive',0),(84,'admin123','love21@gmail.com',12345877,'Disactive',0),(85,'admin123','love22@gmail.com',123458727,'Disactive',0),(86,'admin123','love223@gmail.com',1234587277,'Disactive',0);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,33 +282,33 @@ DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile` (
   `profile_id` int(10) NOT NULL AUTO_INCREMENT,
   `acc_id` int(11) NOT NULL,
-  `idcardnumber` int(16) NOT NULL,
-  `placeofbirth` varchar(50) NOT NULL,
-  `dateofbirth` date NOT NULL,
-  `Gender` enum('L','P') NOT NULL,
-  `Religion` enum('Kristen','Katolik','Islam','Hindu','Buddha') NOT NULL,
-  `ImageKTP` varchar(55) NOT NULL,
-  `ImageSelfie` varchar(55) NOT NULL,
-  `StatusMarriage` enum('Married','Not Married') NOT NULL,
-  `Education` enum('D3','S1','S2','S3') NOT NULL,
+  `idcardnumber` int(16) DEFAULT NULL,
+  `placeofbirth` varchar(50) DEFAULT NULL,
+  `dateofbirth` date DEFAULT NULL,
+  `Gender` enum('L','P') DEFAULT NULL,
+  `Religion` enum('Kristen','Katolik','Islam','Hindu','Buddha') DEFAULT NULL,
+  `ImageKTP` varchar(55) DEFAULT NULL,
+  `ImageSelfie` varchar(55) DEFAULT NULL,
+  `StatusMarriage` enum('Married','Not Married') DEFAULT NULL,
+  `Education` enum('D3','S1','S2','S3') DEFAULT NULL,
   `TaxID` tinyint(11) DEFAULT NULL,
-  `ImageFamilyMemberCard` varchar(55) NOT NULL,
-  `Occupation` varchar(55) NOT NULL,
-  `Fields` varchar(20) NOT NULL,
-  `Position` varchar(25) NOT NULL,
-  `StatusOfEmployment` varchar(55) NOT NULL,
-  `ProofOfEmployment` varchar(55) NOT NULL,
-  `ProofOfIncome` varchar(55) NOT NULL,
-  `ProofOfBusiness` varchar(55) NOT NULL,
-  `ProofOfBusinessIncome` varchar(55) NOT NULL,
-  `Type` varchar(20) NOT NULL,
-  `Status` varchar(20) NOT NULL,
+  `ImageFamilyMemberCard` varchar(55) DEFAULT NULL,
+  `Occupation` varchar(55) DEFAULT NULL,
+  `Fields` varchar(20) DEFAULT NULL,
+  `Position` varchar(25) DEFAULT NULL,
+  `StatusOfEmployment` varchar(55) DEFAULT NULL,
+  `ProofOfEmployment` varchar(55) DEFAULT NULL,
+  `ProofOfIncome` varchar(55) DEFAULT NULL,
+  `ProofOfBusiness` varchar(55) DEFAULT NULL,
+  `ProofOfBusinessIncome` varchar(55) DEFAULT NULL,
+  `Type` varchar(20) DEFAULT NULL,
+  `Status` varchar(20) DEFAULT NULL,
   `CreatedAt` date NOT NULL,
   `CreatedBy` varchar(55) NOT NULL,
-  `UpdatedAt` date NOT NULL,
-  `UpdatedBy` varchar(55) NOT NULL,
+  `UpdatedAt` date DEFAULT NULL,
+  `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,6 +317,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
+INSERT INTO `profile` VALUES (3,83,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -543,6 +544,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SignUpAccount`(IN `email` VARCHAR(55), IN `password` VARCHAR(55), IN `phone_number` VARCHAR(55))
 BEGIN
+		DECLARE AccountId INT DEFAULT 0;
         INSERT INTO account (email, password, phone_number, status)
 		SELECT * FROM (SELECT email, password, phone_number, 'Disactive') AS tmp
 		WHERE NOT EXISTS (
@@ -550,6 +552,13 @@ BEGIN
             WHERE account.email = email 
             OR account.phone_number = phone_number
 		) LIMIT 1;
+        IF(ROW_COUNT() > 0) THEN
+        	SELECT acc_id into AccountId
+			FROM account
+			WHERE account.email = email;
+            
+			INSERT INTO profile (acc_id, CreatedAt, CreatedBy) VALUES (AccountId, CURDATE(), email);
+        END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -597,4 +606,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-26 22:03:28
+-- Dump completed on 2020-09-27 20:07:49
