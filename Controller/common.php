@@ -35,14 +35,14 @@ class common
         //Set this to true if SMTP host requires authentication to send email
         $mail->SMTPAuth = true;
         //Provide username and password
-        $mail->Username = "jovita.sutanto97@gmail.com";   //nama-email smtp
-        $mail->Password = "--------------";           //password email smtp
+        $mail->Username = "edufund45@gmail.com";   //nama-email smtp
+        $mail->Password = "fundation2019";           //password email smtp
         //If SMTP requires TLS encryption then set it
         $mail->SMTPSecure = "tsl";
         //Set TCP port to connect to
         $mail->Port = 587;
 
-        $mail->From = "franky.sutanto93@gmail.com"; //email pengirim
+        $mail->From = "edufund45@gmail.com"; //email pengirim
         $mail->FromName = $emailFromName; //nama pengirim
 
         $mail->addAddress($emailTo, $emailFromName); //email penerima
