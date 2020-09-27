@@ -5,10 +5,10 @@ include_once '../Database/database.php';
 include_once '../Controller/users.php';
 
 // get data from query string api json
-$email=$_GET['email'];
-$password=$_GET['password'];
-/*$email = 'angela@gmail.com';
-$password = 'angel123';*/
+/*$email=$_GET['email'];
+$password=$_GET['password'];*/
+$email = 'franky.sutanto93@gmail.com';
+$password = 'admin123';
 
 //decryption sha256 password
 $salt = "EduFund__asdSdas";
@@ -24,6 +24,8 @@ if($stmt->rowCount() > 0){
     // get retrieved row
     while($row = $stmt->fetch())
     {
+        /*$test = $row['acc_id'];
+        echo "your email is: ". $row['email'];*/
         // create array
         $user_arr=array(
             "status" => true,
