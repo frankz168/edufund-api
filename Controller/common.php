@@ -25,7 +25,7 @@ class common
         require_once "../library/SMTP.php";
 
         $mail = new PHPMailer;
-
+        $mail->SMTPDebug = false;
         //Enable SMTP debugging.
         $mail->SMTPDebug = 3;
         //Set PHPMailer to use SMTP.
