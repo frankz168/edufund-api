@@ -39,7 +39,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active',0),(2,'jacky123','jacky@gmail.com',89632332,'Active',0),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active',0),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active',0),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active',0),(76,'admin123','squall93@gmail.com',12345,'Disactive',0),(77,'admin123','tidus93@gmail.com',12345,'Disactive',0),(84,'admin123','love21@gmail.com',12345877,'Disactive',0),(85,'admin123','love22@gmail.com',123458727,'Disactive',0),(86,'admin123','love223@gmail.com',1234587277,'Disactive',0);
+INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active',2),(2,'jacky123','jacky@gmail.com',89632332,'Active',0),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active',0),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active',0),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active',0),(76,'admin123','squall93@gmail.com',12345,'Disactive',0),(77,'admin123','tidus93@gmail.com',12345,'Disactive',0),(84,'admin123','love21@gmail.com',12345877,'Disactive',0),(85,'admin123','love22@gmail.com',123458727,'Disactive',0),(86,'admin123','love223@gmail.com',1234587277,'Disactive',0);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,6 +350,33 @@ INSERT INTO `province` VALUES (1,'DKI Jakarta','2020-08-19','SYSTEM','0000-00-00
 UNLOCK TABLES;
 
 --
+-- Table structure for table `simulation_helper`
+--
+
+DROP TABLE IF EXISTS `simulation_helper`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `simulation_helper` (
+  `simulation_id` int(11) NOT NULL,
+  `acc_id` int(4) DEFAULT NULL,
+  `balance` decimal(18,2) DEFAULT NULL,
+  `principal` decimal(18,2) DEFAULT NULL,
+  `interest` decimal(18,2) DEFAULT NULL,
+  `installments` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`simulation_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `simulation_helper`
+--
+
+LOCK TABLES `simulation_helper` WRITE;
+/*!40000 ALTER TABLE `simulation_helper` DISABLE KEYS */;
+/*!40000 ALTER TABLE `simulation_helper` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `village`
 --
 
@@ -503,6 +530,28 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertSimulationHelper` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSimulationHelper`(IN `acc_id` INT, IN `balance` DECIMAL(18,2), 
+IN `principal` DECIMAL(18,2), IN `interest` DECIMAL(18,2), IN `installments` DECIMAL(18,2))
+BEGIN
+	DELETE FROM simulation_helper WHERE simulation_helper.acc_id = acc_id;
+	INSERT INTO simulation_helper(acc_id, balance, principal, interest, installments)
+    VALUES(acc_id, balance, principal, interest, installments);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ResetPassword` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -606,4 +655,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-27 20:07:49
+-- Dump completed on 2020-09-29 22:09:57
