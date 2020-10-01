@@ -1,4 +1,6 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
+CREATE DATABASE  IF NOT EXISTS `edufund` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `edufund`;
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: edufund
 -- ------------------------------------------------------
@@ -28,7 +30,6 @@ CREATE TABLE `account` (
   `email` varchar(55) NOT NULL,
   `phone_number` int(55) NOT NULL,
   `status` varchar(55) NOT NULL,
-  `attempt_login_count` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`acc_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,7 +40,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active',2),(2,'jacky123','jacky@gmail.com',89632332,'Active',0),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active',0),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active',0),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active',0),(76,'admin123','squall93@gmail.com',12345,'Disactive',0),(77,'admin123','tidus93@gmail.com',12345,'Disactive',0),(84,'admin123','love21@gmail.com',12345877,'Disactive',0),(85,'admin123','love22@gmail.com',123458727,'Disactive',0),(86,'admin123','love223@gmail.com',1234587277,'Disactive',0);
+INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active'),(2,'jacky123','jacky@gmail.com',89632332,'Active'),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active'),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active'),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active'),(76,'admin123','squall93@gmail.com',12345,'Disactive'),(77,'admin123','tidus93@gmail.com',12345,'Disactive'),(84,'admin123','love21@gmail.com',12345877,'Disactive'),(85,'admin123','love22@gmail.com',123458727,'Disactive'),(86,'admin123','love223@gmail.com',1234587277,'Disactive');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -403,248 +404,6 @@ LOCK TABLES `village` WRITE;
 INSERT INTO `village` VALUES (1,'Grogol','2020-09-19','SYSTEM','0000-00-00',''),(2,'Taman Sari','2020-09-19','SYSTEM','0000-00-00',''),(3,'Cengkareng','2020-09-19','SYSTEM','0000-00-00','');
 /*!40000 ALTER TABLE `village` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'edufund'
---
-/*!50003 DROP PROCEDURE IF EXISTS `GetDataAccount` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetDataAccount`(IN `email` VARCHAR(55), IN `password` VARCHAR(55))
-BEGIN
-    DECLARE LoginData INT DEFAULT 0;
-    DECLARE AccountId INT DEFAULT 0;
-    
-
-	SELECT email, password, acc_id 
-
- 	FROM account
-
-	WHERE account.email = email and account.password = password
-    and account.status = 'Active';
-    
-    SELECT COUNT(*) into LoginData 
-    FROM account
-	WHERE account.email = email and account.password = password;
-    
-	SELECT acc_id into AccountId
-    FROM account
-	WHERE account.email = email;
-     
-    if(LoginData <= 0) THEN
-		UPDATE `edufund`.`account` 
-		SET account.attempt_login_count = account.attempt_login_count + 1, 
-		Status = CASE WHEN account.attempt_login_count >=5 THEN 'Suspend' ELSE Status END
-		WHERE account.acc_id = AccountId;
-    END IF;
-        
-
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GetDataAllLoanStatus` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetDataAllLoanStatus`()
-BEGIN
-	SELECT LoanStatusID, StatusName
-    FROM loanstatus
-    WHERE loanstatus.Status = 'Active';
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GetDataAllProduct` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetDataAllProduct`()
-BEGIN
-	SELECT product_id, product_name, status from product;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GetDataAllProvince` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetDataAllProvince`()
-BEGIN
-	SELECT Province_ID, Province_Name FROM province;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `GetDataAllVillage` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetDataAllVillage`()
-BEGIN
-	SELECT Village_ID, Village_Name FROM village;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `InsertSimulationHelper` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSimulationHelper`(IN `acc_id` INT, IN `balance` DECIMAL(18,2), 
-IN `principal` DECIMAL(18,2), IN `interest` DECIMAL(18,2), IN `installments` DECIMAL(18,2))
-BEGIN
-	DELETE FROM simulation_helper WHERE simulation_helper.acc_id = acc_id;
-	INSERT INTO simulation_helper(acc_id, balance, principal, interest, installments)
-    VALUES(acc_id, balance, principal, interest, installments);
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `ResetPassword` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ResetPassword`(IN `email` VARCHAR(55), IN `password` VARCHAR(55))
-BEGIN
-	DECLARE AccountId INT DEFAULT 0;
-    
-    SELECT acc_id into AccountId
-    FROM account
-	WHERE account.email = email;
-    
-	UPDATE account
-	SET account.password = password,
-    account.attempt_login_count = 0,
-    account.Status = 'Active'
-	WHERE account.acc_id = AccountId;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `SignUpAccount` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SignUpAccount`(IN `email` VARCHAR(55), IN `password` VARCHAR(55), IN `phone_number` VARCHAR(55))
-BEGIN
-		DECLARE AccountId INT DEFAULT 0;
-        INSERT INTO account (email, password, phone_number, status)
-		SELECT * FROM (SELECT email, password, phone_number, 'Disactive') AS tmp
-		WHERE NOT EXISTS (
-			SELECT account.email FROM account 
-            WHERE account.email = email 
-            OR account.phone_number = phone_number
-		) LIMIT 1;
-        IF(ROW_COUNT() > 0) THEN
-        	SELECT acc_id into AccountId
-			FROM account
-			WHERE account.email = email;
-            
-			INSERT INTO profile (acc_id, CreatedAt, CreatedBy) VALUES (AccountId, CURDATE(), email);
-        END IF;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `UpdateStatusAccount` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateStatusAccount`(IN `email` VARCHAR(55), IN `Status` VARCHAR(55))
-BEGIN
-
-	DECLARE AccountId INT DEFAULT 0;
-    
-    SELECT acc_id into AccountId
-    FROM account
-	WHERE account.email = email;
-    
-	UPDATE account
-	SET
-	account.attempt_login_count = 0,
-    account.Status = 'Active'
-	WHERE account.acc_id = AccountId;
-
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -655,4 +414,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-29 22:09:57
+-- Dump completed on 2020-10-01 22:28:41
