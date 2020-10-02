@@ -12,9 +12,9 @@ $email=$data['email'];
 $password=$data['password'];
 $phonenumber = $data['phonenumber'];
 
-/*$email = 'franky.sutanto93@gmail.com';
-$password = 'admin123';
-$phonenumber = '124';*/
+//$email = 'franky.sutanto93@gmail.com';
+//$password = 'admin123';
+//$phonenumber = '1242';
 
 // get database connection
 $database = new Database();
@@ -30,9 +30,9 @@ $user = new Users($db);
 $stmt = $user->signUpAccount($email, $finalpassword, $phonenumber);
 if($stmt->rowCount() > 0){
     // create array
-    $linkActiveAccount = "http://localhost:63342/edufund-api/Api/successverification.php?email=".$email;
-    $emailMessage = "Hello," . $email ."<br>"."You have been successfully sign up in this application." . "<br>". "Please click in this url link to active your account. " .  $linkActiveAccount  . "<br>". "Contact our support team if you are still having issues to active the account." . "<br>". "Regards The Edufund Team";
     $common = new Common();
+    $linkActiveAccount = $common->linkUrl()."edufund-api/Api/successverification.php?email=".$email;
+    $emailMessage = "Hello," . $email ."<br>"."You have been successfully sign up in this application." . "<br>". "Please click in this url link to active your account. " .  $linkActiveAccount  . "<br>". "Contact our support team if you are still having issues to active the account." . "<br>". "Regards The Edufund Team";
     $common -> sendEmail($email, 'Edufund Auto Mail', 'Verification account', $emailMessage);
     $signup_arr=array(
         "success" => 1,

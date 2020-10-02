@@ -24,8 +24,6 @@ $resultinstallments = 0;
 
 if($periodtime != null){
     for ($x = 0; $x <= $periodtime; $x++) {
-//    $interest = 12;
-//    $interestpermonth = $interest / 12;
         $resultprincipal = $loanamountrequest / $periodtime;
         $resultinterest = $interestpermonth * $loanamountrequest / 100;
 

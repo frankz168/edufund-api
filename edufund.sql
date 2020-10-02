@@ -31,7 +31,7 @@ CREATE TABLE `account` (
   `phone_number` int(55) NOT NULL,
   `status` varchar(55) NOT NULL,
   PRIMARY KEY (`acc_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active'),(2,'jacky123','jacky@gmail.com',89632332,'Active'),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active'),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active'),(75,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',124,'Active'),(76,'admin123','squall93@gmail.com',12345,'Disactive'),(77,'admin123','tidus93@gmail.com',12345,'Disactive'),(84,'admin123','love21@gmail.com',12345877,'Disactive'),(85,'admin123','love22@gmail.com',123458727,'Disactive'),(86,'admin123','love223@gmail.com',1234587277,'Disactive');
+INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active'),(2,'jacky123','jacky@gmail.com',89632332,'Active'),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active'),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active'),(76,'admin123','squall93@gmail.com',12345,'Disactive'),(77,'admin123','tidus93@gmail.com',12345,'Disactive'),(84,'admin123','love21@gmail.com',12345877,'Disactive'),(85,'admin123','love22@gmail.com',123458727,'Disactive'),(86,'admin123','love223@gmail.com',1234587277,'Disactive'),(91,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',1242,'Active');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +309,7 @@ CREATE TABLE `profile` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`profile_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,7 +318,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (3,83,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL);
+INSERT INTO `profile` VALUES (3,83,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL),(6,87,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(7,88,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(8,89,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL),(9,90,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','frankys.sutanto93@gmail.com',NULL,NULL),(10,91,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -614,7 +614,6 @@ BEGIN
     
 	UPDATE account
 	SET
-	account.attempt_login_count = 0,
     account.Status = 'Active'
 	WHERE account.acc_id = AccountId;
 
@@ -634,4 +633,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-02 17:02:30
+-- Dump completed on 2020-10-03  0:39:19

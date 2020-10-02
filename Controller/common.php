@@ -5,6 +5,14 @@ use PHPMailer\PHPMailer\Exception;
 
 class common
 {
+
+    public function linkUrl()
+    {
+        $value = "http://192.168.0.19/";
+
+        return $value;
+    }
+
     public function generateRandomPassword($length) {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         $pass = array(); //remember to declare $pass as an array
