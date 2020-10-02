@@ -59,7 +59,8 @@ if($periodtime != null){
             "interest" => $formatinterest,
             "balance" => $formatbalance,
             "principal" => $formatprincipal,
-            "Installment" => $formatinstallments
+            "Installment" => $formatinstallments,
+            "Status" => true
         );
 
     }
