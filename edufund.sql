@@ -60,16 +60,14 @@ CREATE TABLE `address` (
   `Number` int(10) NOT NULL,
   `RT` int(10) NOT NULL,
   `RW` int(10) NOT NULL,
-  `Province` varchar(55) NOT NULL,
   `City` varchar(55) NOT NULL,
   `SubDistrict` varchar(55) NOT NULL,
-  `Village` varchar(55) NOT NULL,
   `PostalCode` int(20) NOT NULL,
   `ResidentialStatus` varchar(55) NOT NULL,
   `Duration` int(10) NOT NULL,
   `ProofOfResidence` varchar(55) NOT NULL,
   PRIMARY KEY (`Address_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +76,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,0,0,0,'Jl Asoka Raya ',5,7,12,'DKI Jakarta','Jakarta Barat','Kalideres','Duri Kosambi',11880,'Pribadi',3,'sertifikat rumah');
+INSERT INTO `address` VALUES (1,0,0,0,'Jl Asoka Raya ',5,7,12,'Jakarta Barat','Kalideres',11880,'Pribadi',3,'sertifikat rumah'),(8,10,1,1,'Jakarta Barat',123456789,11850,11082,'Jakarta','test',11850,'Active',20,'Test');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,12 +125,12 @@ CREATE TABLE `emergencycontact` (
   `Phone` varchar(55) NOT NULL,
   `Relationship` varchar(55) NOT NULL,
   `Status` varchar(55) NOT NULL,
-  `CreatedAt` date NOT NULL,
-  `CreatedBy` varchar(55) NOT NULL,
-  `UpdatedAt` date NOT NULL,
-  `UpdatedBy` varchar(55) NOT NULL,
+  `CreatedAt` date DEFAULT NULL,
+  `CreatedBy` varchar(55) DEFAULT NULL,
+  `UpdatedAt` date DEFAULT NULL,
+  `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`ID_EmergencyContact`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,6 +139,7 @@ CREATE TABLE `emergencycontact` (
 
 LOCK TABLES `emergencycontact` WRITE;
 /*!40000 ALTER TABLE `emergencycontact` DISABLE KEYS */;
+INSERT INTO `emergencycontact` VALUES (10,10,'Jovita','0812123','No','Active','2020-10-05','10','2020-10-05','10');
 /*!40000 ALTER TABLE `emergencycontact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -318,7 +317,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (3,83,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL),(6,87,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(7,88,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(8,89,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL),(9,90,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','frankys.sutanto93@gmail.com',NULL,NULL),(10,91,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL);
+INSERT INTO `profile` VALUES (3,83,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL),(6,87,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(7,88,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(8,89,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL),(9,90,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','frankys.sutanto93@gmail.com',NULL,NULL),(10,91,12344556,'Jakarta','1993-08-16','L','Kristen','','','Not Married','S1',1,'','Indonesia','test','IT','Active','test','test','test','test','Data','Active','2020-10-03','franky.sutanto93@gmail.com','2020-10-05','10');
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -593,6 +592,123 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateProfileAccount` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateProfileAccount`(IN `email` VARCHAR(55), 
+IN `idcardnumber` INT(16), 
+IN `placeofbirth` VARCHAR(50),
+IN `dateofbirth` DATE,
+IN `Gender` ENUM('L','P'),
+IN `Religion` ENUM('Kristen','Katolik','Islam','Hindu','Buddha'),
+IN `ImageKTP` VARCHAR(55),
+IN `ImageSelfie` VARCHAR(55),
+IN `StatusMarriage` ENUM('Married','Not Married'),
+IN `Education` ENUM('D3','S1','S2','S3'),
+IN `TaxID` TINYINT(11), 
+IN `ImageFamilyMemberCard` VARCHAR(55),
+IN `Occupation` VARCHAR(50),
+IN `Fields` VARCHAR(20),
+IN `Position` VARCHAR(25),
+IN `StatusOfEmployment` VARCHAR(55),
+IN `ProofOfEmployment` VARCHAR(55),
+IN `ProofOfIncome` VARCHAR(55),
+IN `ProofOfBusiness` VARCHAR(55),
+IN `ProofOfBusinessIncome` VARCHAR(55),
+IN `Type` VARCHAR(20),
+IN `Status` VARCHAR(20),
+IN `Village_ID` INT,
+IN `Province_ID` INT,
+IN `Street` VARCHAR(55),
+IN `Number` INT(10),
+IN `RT` INT(10),
+IN `RW` INT(10),
+IN `City` VARCHAR(55),
+IN `SubDistrict` VARCHAR(55),
+IN `PostalCode` INT(20),
+IN `ResidentialStatus` VARCHAR(55),
+IN `Duration` INT(10),
+IN `ProofOfResidence` VARCHAR(55),
+IN `Name` VARCHAR(55),
+IN `Phone` VARCHAR(55),
+IN `Relationship` VARCHAR(55)
+)
+BEGIN
+
+	DECLARE AccountId INT DEFAULT 0;
+	DECLARE ProfileId INT DEFAULT 0;
+    DECLARE AddressId INT DEFAULT 0;
+    DECLARE IDEmergencyContact INT DEFAULT 0;
+
+    
+    SELECT acc_id into AccountId
+    FROM account
+	WHERE account.email = email;
+
+    SELECT profile_id into ProfileId
+    FROM profile
+	WHERE profile.acc_id = AccountId;
+    
+	UPDATE profile
+	SET profile.idcardnumber = idcardnumber,
+    profile.placeofbirth = placeofbirth,
+    profile.dateofbirth =  dateofbirth,
+    profile.Gender = gender,
+    profile.Religion = Religion,
+    profile.ImageKTP = ImageKTP,
+    profile.ImageSelfie = ImageSelfie,
+	profile.StatusMarriage = StatusMarriage,
+	profile.Education = Education,
+    profile.TaxID = TaxID,
+    profile.ImageFamilyMemberCard = ImageFamilyMemberCard,
+    profile.Occupation = Occupation,
+    profile.Fields = Fields,
+    profile.Position = Position,
+    profile.StatusOfEmployment = StatusOfEmployment,
+    profile.ProofOfEmployment = ProofOfEmployment,
+    profile.ProofOfIncome = ProofOfIncome,
+    profile.ProofOfBusiness = ProofOfBusiness,
+    profile.ProofOfBusinessIncome = ProofOfBusinessIncome,
+    profile.Type = Type,
+    profile.Status = Status,
+    profile.UpdatedAt = CURDATE(),
+    profile.UpdatedBy = ProfileId
+	WHERE profile.profile_id = ProfileId;
+
+
+
+IF(ProfileId != 0) THEN
+	SELECT Address_ID into AddressId
+	FROM address
+	WHERE address.Profile_ID = ProfileId;
+
+	DELETE FROM address WHERE address.Address_ID = AddressId;
+	INSERT INTO address (Profile_ID, Village_ID, Province_ID, Street, Number, RT, RW, City, SubDistrict, PostalCode, ResidentialStatus, Duration, ProofOfResidence) 
+	VALUES (ProfileId, Village_ID, Province_ID, Street, Number, RT, RW, City, SubDistrict, PostalCode, ResidentialStatus, Duration, ProofOfResidence);
+
+	SELECT ID_EmergencyContact into IDEmergencyContact
+	FROM emergencycontact
+	WHERE emergencycontact.Profile_ID = ProfileId;
+	
+	DELETE FROM emergencycontact WHERE emergencycontact.ID_EmergencyContact = IDEmergencyContact;
+	INSERT INTO emergencycontact (Profile_ID, Name, Phone, Relationship, Status, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) 
+	VALUES (ProfileId, Name, Phone, Relationship, 'Active', CURDATE(), ProfileId, CURDATE(), ProfileId);
+
+END IF;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UpdateStatusAccount` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -633,4 +749,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-03  0:39:19
+-- Dump completed on 2020-10-05 22:17:04

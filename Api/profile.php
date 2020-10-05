@@ -43,6 +43,44 @@ $Name=$data['Name'];
 $Phone=$data['Phone'];
 $Relationship=$data['Relationship'];
 
+//$email='franky.sutanto93@gmail.com';
+//$idcardnumber='12344556';
+//$placeofbirth='Jakarta';
+//$dateofbirth='1993-08-16';
+//$gender='L';
+//$religion='Kristen';
+//$ImageKTP=null;
+//$ImageSelfie=null;
+//$StatusMarriage='Not Married';
+//$Education='S1';
+//$TaxID=1;
+//$ImageFamilyMemberCard=null;
+//$Occupation='Indonesia';
+//$Fields='test';
+//$Position='IT';
+//$StatusOfEmployment='Active';
+//$ProofOfEmployment='test';
+//$ProofOfIncome='test';
+//$ProofOfBusiness='test';
+//$ProofOfBusinessIncome='test';
+//$Type='Data';
+//$Status='Active';
+//$Village_ID='1';
+//$Province_ID='1';
+//$Street='Jakarta Barat';
+//$Number='123456789';
+//$RT='11850';
+//$RW='11082';
+//$City='Jakarta';
+//$SubDistrict='test';
+//$PostalCode='11850';
+//$ResidentialStatus='Active';
+//$Duration='20';
+//$ProofOfResidence='Test';
+//$Name='Jovita';
+//$Phone='0812123';
+//$Relationship='No';
+
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
@@ -70,6 +108,6 @@ else{
     );
 }
 // make it json format
-print_r(json_encode($respass_arr));
+print_r(json_encode($profile_arr));
 
 ?>
