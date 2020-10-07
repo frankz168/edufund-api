@@ -97,6 +97,26 @@ class Users
         }
     }
 
+    // get profile account by email sp
+    public function GetProfileAccountByEmail($email){
+        // call sp for reset password
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL GetProfileAccountByEmail('$email')") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
+
+    // update profile account
     public function UpdateProfile($email, $idcardnumber, $placeofbirth, $dateofbirth, $gender, $religion, $ImageKTP, $ImageSelfie,
                                   $StatusMarriage, $Education, $TaxID, $ImageFamilyMemberCard,
                                   $Occupation, $Fields, $Position, $StatusOfEmployment,

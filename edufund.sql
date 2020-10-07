@@ -509,6 +509,54 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetProfileAccountByEmail` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetProfileAccountByEmail`(IN `email` VARCHAR(55))
+BEGIN
+	DECLARE AccountId INT DEFAULT 0;
+	DECLARE ProfileId INT DEFAULT 0;
+    
+    SELECT acc_id into AccountId
+    FROM account
+	WHERE account.email = email;
+
+    SELECT profile_id into ProfileId
+    FROM profile
+	WHERE profile.acc_id = AccountId;
+
+	SELECT `profile`.`profile_id`,`profile`.`acc_id`,`profile`.`idcardnumber`,`profile`.`placeofbirth`,`profile`.`dateofbirth`,
+    `profile`.`Gender`,`profile`.`Religion`,`profile`.`ImageKTP`,`profile`.`ImageSelfie`,`profile`.`StatusMarriage`,`profile`.`Education`,
+    `profile`.`TaxID`,`profile`.`ImageFamilyMemberCard`,`profile`.`Occupation`,`profile`.`Fields`,`profile`.`Position`,`profile`.`StatusOfEmployment`,`profile`.`ProofOfEmployment`,
+    `profile`.`ProofOfIncome`,`profile`.`ProofOfBusiness`,`profile`.`ProofOfBusinessIncome`,`profile`.`Type`,
+    `profile`.`Status`,`profile`.`CreatedAt`,`profile`.`CreatedBy`,`profile`.`UpdatedAt`,`profile`.`UpdatedBy`,
+	
+	`address`.`Address_ID`,`address`.`Profile_ID`,`address`.`Village_ID`,
+    `address`.`Province_ID`,`address`.`Street`,`address`.`Number`,`address`.`RT`,`address`.`RW`,
+    `address`.`City`,`address`.`SubDistrict`,`address`.`PostalCode`,`address`.`ResidentialStatus`,
+    `address`.`Duration`,`address`.`ProofOfResidence`,
+     
+	`emergencycontact`.`ID_EmergencyContact`,`emergencycontact`.`Profile_ID`,
+    `emergencycontact`.`Name`,`emergencycontact`.`Phone`,`emergencycontact`.`Relationship`
+
+	FROM `edufund`.`profile`
+    LEFT JOIN `edufund`.`address` ON `edufund`.`profile`.`profile_id` = `edufund`.`address`.`Profile_ID`
+    LEFT JOIN `edufund`.`emergencycontact` ON `edufund`.`profile`.`profile_id` = `edufund`.`emergencycontact`.`Profile_ID`
+	WHERE `edufund`.`profile`.`profile_id` = ProfileId;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `InsertSimulationHelper` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -749,4 +797,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-05 22:17:04
+-- Dump completed on 2020-10-07 23:42:13
