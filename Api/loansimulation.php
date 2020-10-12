@@ -5,13 +5,13 @@ include_once '../Database/database.php';
 include_once '../Controller/users.php';
 
 // get data from query string api json
-$periodtime= $_GET['periodtime'];
-$interestpermonth= $_GET['interestpermonth'];
-$loanamountrequest = $_GET['loanamountrequest'];
+//$periodtime= $_GET['periodtime'];
+//$interestpermonth= $_GET['interestpermonth'];
+//$loanamountrequest = $_GET['loanamountrequest'];
 
-//$periodtime = 12;
-//$interestpermonth = 1;
-//$loanamountrequest = 3500000;
+$periodtime = 12;
+$interestpermonth = 1;
+$loanamountrequest = 3500000;
 
 $balance = $loanamountrequest;
 $principal = 0;
