@@ -9,8 +9,8 @@ $email=$data['email'];
 $idcardnumber=$data['idcardnumber'];
 $placeofbirth=$data['placeofbirth'];
 $dateofbirth=$data['dateofbirth'];
-$gender=$data['gender'];
-$religion=$data['religion'];
+$Gender=$data['Gender'];
+$Religion=$data['Religion'];
 $ImageKTP=$data['ImageKTP'];
 $ImageSelfie=$data['ImageSelfie'];
 $StatusMarriage=$data['StatusMarriage'];
@@ -87,7 +87,7 @@ $db = $database->getConnection();
 // prepare user object
 $user = new Users($db);
 
-$stmt = $user->UpdateProfile($email, $idcardnumber, $placeofbirth, $dateofbirth, $gender, $religion, $ImageKTP, $ImageSelfie,
+$stmt = $user->UpdateProfile($email, $idcardnumber, $placeofbirth, $dateofbirth, $Gender, $Religion, $ImageKTP, $ImageSelfie,
     $StatusMarriage, $Education, $TaxID, $ImageFamilyMemberCard,
     $Occupation, $Fields, $Position, $StatusOfEmployment,
     $ProofOfEmployment, $ProofOfIncome, $ProofOfBusiness,

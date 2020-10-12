@@ -39,7 +39,7 @@ if($stmt->rowCount() > 0){
 else{
     $user_arr=array(
         "status" => false,
-        "message" => "Invalid Username or Password!",
+        "message" => "Invalid Email or Password!",
     );
 }
 // make it json format
