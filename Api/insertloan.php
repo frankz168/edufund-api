@@ -2,7 +2,7 @@
 header("Content-type: application/json");
 //include_once "Database/koneksi.php";
 include_once '../Database/database.php';
-include_once '../Controller/users.php';
+include_once '../Controller/loan.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 //$email=$data['email'];
@@ -14,10 +14,19 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 
 $email = 'jovitasutanto98@gmail.com';
-$periodtime = '20';
+$product_id = '1';
+$loan_status_id = '1';
+$AgreementDate = '2020-10-10';
+$DisbursementDate = '2020-10-10';
+$periodtime = '12';
 $interest = '1.5';
 $amount_without_interest = 20000000;
 $totalamount = 26000000;
+$DueAmount = 20000000;
+$DateAmount = '2020-10-10';
+$DueDateAmount  = '2020-10-10';
+$LoanQuality = 'Good';
+$LoanStatus = 'InProgress';
 $Reason = "ingin bayar uang pangkal";
 
 
@@ -26,10 +35,27 @@ $Reason = "ingin bayar uang pangkal";
 $database = new Database();
 $db = $database->getConnection();
 // prepare user object
-$user = new Users($db);
+$loan = new loan($db);
 
-$stmt = $user->InsertLoan($email, $periodtime, $interest, $amount_without_interest, $totalamount, $Reason);
+$stmt = $loan->InsertLoan($email, $product_id, $loan_status_id, $AgreementDate, $DisbursementDate, $periodtime, $interest, $amount_without_interest, $totalamount, $DueAmount, $DateAmount, $DueDateAmount, $LoanQuality, $LoanStatus, $Reason);
 if($stmt->rowCount() > 0){
+    if($periodtime != null){
+        while($row = $stmt->fetch())
+        {
+            $loanid = $row['Loan_Id'];
+            $accid = $row['acc_id'];
+            $DueDateAmount = $row['DueDateAmount'];
+
+            for ($x = -1; $x <= $periodtime; $x++) {
+                echo "No: $x \n";
+                $stmt2 = $loan->InsertInvoice($loanid, $accid, $x, $DueDateAmount);
+                if($stmt2->rowCount() > 0){
+                    echo "Success: $x \n";
+                }
+            }
+        }
+    }
+
     // create array
     $loan_arr=array(
         "success" => 1,

@@ -186,26 +186,4 @@ class Users
 
     }
 
-    public function InsertLoan($email, $periodtime, $interest, $amount_without_interest, $totalamount, $Reason){
-        // call sp for sign up Account
-        try {
-            require_once '../Database/database.php';
-            $query = ("CALL InsertLoan('$email','$periodtime', '$interest','$amount_without_interest','$totalamount','$Reason')") ;
-            // prepare query statement
-            $stmt = $this->conn->prepare($query);
-            $stmt->execute();
-            $stmt->bindParam('email',$email);
-            $stmt->bindParam('periodtime',$interest);
-            $stmt->bindParam('amount_without_interest',$amount_without_interest);
-            $stmt->bindParam('totalamount',$totalamount);
-            $stmt->bindParam('Reason',$Reason);
-            return $stmt;
-
-        }
-        catch(Exception $e)
-        {
-            print_r($e->getMessage());
-        }
-    }
-
 }

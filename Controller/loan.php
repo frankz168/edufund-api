@@ -34,4 +34,62 @@ class loan
 //        }
 //    }
 
+    public function InsertLoan($email, $product_id, $loan_status_id, $AgreementDate, $DisbursementDate, $periodtime, $interest, $amount_without_interest, $totalamount,
+                               $DueAmount, $DateAmount, $DueDateAmount, $LoanQuality, $LoanStatus,
+                               $Reason){
+        // call sp for insert loan
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL InsertLoan('$email', '$product_id', '$loan_status_id', '$AgreementDate', '$DisbursementDate', '$periodtime', '$interest','$amount_without_interest','$totalamount',
+            '$DueAmount', '$DateAmount', '$DueDateAmount', '$LoanQuality', '$LoanStatus',
+            '$Reason')") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            $stmt->bindParam('product_id',$product_id);
+            $stmt->bindParam('loan_status_id',$loan_status_id);
+            $stmt->bindParam('AgreementDate',$AgreementDate);
+            $stmt->bindParam('DisbursementDate',$DisbursementDate);
+            $stmt->bindParam('periodtime',$periodtime);
+            $stmt->bindParam('interest',$interest);
+            $stmt->bindParam('amount_without_interest',$amount_without_interest);
+            $stmt->bindParam('totalamount',$totalamount);
+            $stmt->bindParam('DueAmount',$DueAmount);
+            $stmt->bindParam('DateAmount',$DateAmount);
+            $stmt->bindParam('DueDateAmount',$DueDateAmount);
+            $stmt->bindParam('LoanQuality',$LoanQuality);
+            $stmt->bindParam('LoanStatus',$LoanStatus);
+            $stmt->bindParam('Reason',$Reason);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
+
+    // insert invoice
+    public function InsertInvoice($Loan_id, $acc_id, $InstallmentNumber, $DueDate){
+        // call sp for insert invoice
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL InsertInvoice('$Loan_id','$acc_id', '$InstallmentNumber', '$DueDate')") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('Loan_id',$Loan_id);
+            $stmt->bindParam('acc_id',$acc_id);
+            $stmt->bindParam('InstallmentNumber',$InstallmentNumber);
+            $stmt->bindParam('DueDate',$DueDate);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
+
 }
