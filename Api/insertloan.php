@@ -5,7 +5,7 @@ include_once '../Database/database.php';
 include_once '../Controller/users.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
-//$acc_id=$data['acc_id'];
+//$email=$data['email'];
 //$periodtime=$data['periodtime'];
 //$interest=$data['interest'];
 //$amount_without_interest=$data['amount_without_interest'];
@@ -13,7 +13,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 //$Reason=$data['Reason'];
 
 
-$acc_id = '1';
+$email = 'jovitasutanto98@gmail.com';
 $periodtime = '20';
 $interest = '1.5';
 $amount_without_interest = 20000000;
@@ -28,7 +28,7 @@ $db = $database->getConnection();
 // prepare user object
 $user = new Users($db);
 
-$stmt = $user->InsertLoan($acc_id, $periodtime, $interest, $amount_without_interest, $totalamount, $Reason);
+$stmt = $user->InsertLoan($email, $periodtime, $interest, $amount_without_interest, $totalamount, $Reason);
 if($stmt->rowCount() > 0){
     // create array
     $loan_arr=array(
