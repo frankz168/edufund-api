@@ -168,7 +168,7 @@ CREATE TABLE `loan` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`Loan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (2,92,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'uang pangkal',NULL,NULL,NULL,NULL),(3,91,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'Biaya uang pangkal kuliah',NULL,NULL,NULL,NULL),(9,1,NULL,NULL,NULL,NULL,20,1.5,20000000.00,26000000.00,NULL,NULL,NULL,NULL,NULL,'biaya uang pangkal kuliah',NULL,NULL,NULL,NULL),(10,1,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'ingin membayar uang pangkal',NULL,NULL,NULL,NULL),(11,2,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'ingin membayar uang pangkal',NULL,NULL,NULL,NULL),(13,1,NULL,NULL,NULL,NULL,20,1.5,20000000.00,26000000.00,NULL,NULL,NULL,NULL,NULL,'ingin bayar uang pangkal',NULL,NULL,NULL,NULL);
+INSERT INTO `loan` VALUES (2,92,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'uang pangkal',NULL,NULL,NULL,NULL),(3,91,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'Biaya uang pangkal kuliah',NULL,NULL,NULL,NULL),(9,1,NULL,NULL,NULL,NULL,20,1.5,20000000.00,26000000.00,NULL,NULL,NULL,NULL,NULL,'biaya uang pangkal kuliah',NULL,NULL,NULL,NULL),(10,1,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'ingin membayar uang pangkal',NULL,NULL,NULL,NULL),(11,2,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'ingin membayar uang pangkal',NULL,NULL,NULL,NULL),(14,1,NULL,NULL,NULL,NULL,20,1.5,20000000.00,26000000.00,NULL,NULL,NULL,NULL,NULL,'ingin bayar uang pangkal',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -534,14 +534,14 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertLoan`(in acc_id int, in periodtime int, in interest decimal(18,1), in amount_without_interest decimal(18,2), in totalamount decimal(18,2), in Reason varchar(55))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertLoan`(in `email` varchar(55), in periodtime int, in interest decimal(18,1), in amount_without_interest decimal(18,2), in totalamount decimal(18,2), in Reason varchar(55))
 BEGIN
     DECLARE AccountId INT DEFAULT 0;
     SELECT acc_id into AccountId
     FROM account
-	WHERE account.acc_id = acc_id;
+	WHERE account.email = email;
     
-    insert into loan(acc_id, periodtime, interest, amount_without_interest, totalamount, Reason) values (acc_id, periodtime, interest, amount_without_interest, totalamount, Reason);
+    insert into loan(acc_id, periodtime, interest, amount_without_interest, totalamount, Reason, CreatedAt, CreatedBy) values (AccountId, periodtime, interest, amount_without_interest, totalamount, Reason, CURDATE(), email);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -788,4 +788,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-15 19:48:10
+-- Dump completed on 2020-10-15 20:25:09
