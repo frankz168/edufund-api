@@ -1,4 +1,6 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
+CREATE DATABASE  IF NOT EXISTS `edufund` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `edufund`;
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: edufund
 -- ------------------------------------------------------
@@ -119,15 +121,15 @@ DROP TABLE IF EXISTS `invoice`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `invoice` (
   `invoice_id` int(10) NOT NULL AUTO_INCREMENT,
-  `Loan_id` int(11) NOT NULL,
-  `InstallmentNumber` int(20) NOT NULL,
+  `Loan_id` int(100) NOT NULL,
+  `InstallmentNumber` int(100) NOT NULL,
   `DueDate` date NOT NULL,
   `CreatedAt` date NOT NULL,
   `CreatedBy` varchar(55) NOT NULL,
-  `UpdatedAt` date NOT NULL,
-  `UpdatedBy` varchar(55) NOT NULL,
+  `UpdatedAt` date DEFAULT NULL,
+  `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +170,7 @@ CREATE TABLE `loan` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`Loan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +179,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (2,92,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'uang pangkal',NULL,NULL,NULL,NULL),(3,91,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'Biaya uang pangkal kuliah',NULL,NULL,NULL,NULL),(9,1,NULL,NULL,NULL,NULL,20,1.5,20000000.00,26000000.00,NULL,NULL,NULL,NULL,NULL,'biaya uang pangkal kuliah',NULL,NULL,NULL,NULL),(10,1,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'ingin membayar uang pangkal',NULL,NULL,NULL,NULL),(11,2,NULL,NULL,NULL,NULL,12,1.5,17000000.00,20060000.00,NULL,NULL,NULL,NULL,NULL,'ingin membayar uang pangkal',NULL,NULL,NULL,NULL),(14,1,NULL,NULL,NULL,NULL,20,1.5,20000000.00,26000000.00,NULL,NULL,NULL,NULL,NULL,'ingin bayar uang pangkal',NULL,NULL,NULL,NULL);
+INSERT INTO `loan` VALUES (27,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(28,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(29,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(30,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(31,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(32,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(33,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(34,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(35,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(36,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(37,92,1,1,'2020-10-10','2020-10-10',12,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(38,92,1,1,'2020-10-10','2020-10-10',12,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -524,6 +526,30 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertInvoice` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertInvoice`(in Loan_id int, in acc_id int, in InstallmentNumber int, in DueDate DATE)
+BEGIN
+
+INSERT INTO `edufund`.`invoice`
+(`Loan_id`,`InstallmentNumber`,`DueDate`,`CreatedAt`,`CreatedBy`)
+VALUES
+(Loan_id, InstallmentNumber, DueDate, CURDATE(), acc_id);
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `InsertLoan` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -534,14 +560,31 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertLoan`(in `email` varchar(55), in periodtime int, in interest decimal(18,1), in amount_without_interest decimal(18,2), in totalamount decimal(18,2), in Reason varchar(55))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertLoan`(in `email` varchar(55), in product_id int, in loan_status_id int, in AgreementDate DATE, in DisbursementDate DATE,
+in periodtime int, in interest decimal(18,1), in amount_without_interest decimal(18,2), in totalamount decimal(18,2), in DueAmount decimal(18,2), in DateAmount DATE,
+in DueDateAmount DATE, in LoanQuality VARCHAR(25), in LoanStatus VARCHAR(25),
+in Reason varchar(55))
 BEGIN
     DECLARE AccountId INT DEFAULT 0;
     SELECT acc_id into AccountId
     FROM account
 	WHERE account.email = email;
     
-    insert into loan(acc_id, periodtime, interest, amount_without_interest, totalamount, Reason, CreatedAt, CreatedBy) values (AccountId, periodtime, interest, amount_without_interest, totalamount, Reason, CURDATE(), email);
+    insert into loan(`acc_id`,`product_id`,`loan_status_id`,
+	`AgreementDate`,`DisbursementDate`,`periodtime`,`Interest`,`amount_without_interest`,
+	`totalamount`,`DueAmount`,`DateAmount`,`DueDateAmount`,`LoanQuality`,`LoanStatus`,`Reason`,
+	`CreatedAt`,`CreatedBy`) 
+    values (AccountId, product_id, loan_status_id, AgreementDate, DisbursementDate, periodtime, interest, amount_without_interest, totalamount, 
+    DueAmount, DateAmount, DueDateAmount, LoanQuality, LoanStatus,
+    Reason, CURDATE(), email);
+
+    IF(ROW_COUNT() > 0) THEN
+		SELECT loan.Loan_Id, loan.acc_id, loan.DueDateAmount FROM loan
+        WHERE loan.acc_id = AccountId
+        ORDER BY loan.Loan_Id DESC
+        LIMIT 1;
+	END IF;
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -788,4 +831,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-15 20:25:09
+-- Dump completed on 2020-10-15 23:08:43

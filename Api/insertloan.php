@@ -13,6 +13,10 @@ $data = json_decode(file_get_contents('php://input'), true);
 //$Reason=$data['Reason'];
 
 
+//CALL InsertLoan('franky.sutanto93@gmail.com','1', '1', '2020-10-15', '2020-10-15', '6', '1.5', '4000000', '4500000',
+//    '4500000', '2020-10-15', '2021-04-10', 'Good', 'Submit',
+//    'test borrow')
+
 $email = 'jovitasutanto98@gmail.com';
 $product_id = '1';
 $loan_status_id = '1';
