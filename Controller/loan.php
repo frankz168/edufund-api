@@ -71,17 +71,19 @@ class loan
     }
 
     // insert invoice
-    public function InsertInvoice($Loan_id, $acc_id, $InstallmentNumber, $DueDate){
+    public function InsertInvoice($Loan_id, $acc_id, $InstallmentNumber, $Amount, $Status, $DueDate){
         // call sp for insert invoice
         try {
             require_once '../Database/database.php';
-            $query = ("CALL InsertInvoice('$Loan_id','$acc_id', '$InstallmentNumber', '$DueDate')") ;
+            $query = ("CALL InsertInvoice('$Loan_id','$acc_id', '$InstallmentNumber', '$Amount', '$Status', '$DueDate')") ;
             // prepare query statement
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
             $stmt->bindParam('Loan_id',$Loan_id);
             $stmt->bindParam('acc_id',$acc_id);
             $stmt->bindParam('InstallmentNumber',$InstallmentNumber);
+            $stmt->bindParam('Amount',$Amount);
+            $stmt->bindParam('Status',$Status);
             $stmt->bindParam('DueDate',$DueDate);
             return $stmt;
 

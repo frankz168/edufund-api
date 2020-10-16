@@ -14,10 +14,7 @@ $DisbursementDate = $data['DisbursementDate'];
 $periodtime =$data['periodtime'];
 $interest =$data['interest'];
 $amount_without_interest=$data['amount_without_interest'];
-$totalamount =$data['totalamount'];
 $DueAmount = $data['DueAmount'];
-$DateAmount = $data['DateAmount'];
-$DueDateAmount = $data['DueDateAmount'];
 $LoanQuality = $data['LoanQuality'];
 $LoanStatus = $data['LoanStatus'];
 $Reason=$data['Reason'];
@@ -32,17 +29,16 @@ $Reason=$data['Reason'];
 //$loan_status_id = '1';
 //$AgreementDate = '2020-10-10';
 //$DisbursementDate = '2020-10-10';
-//$periodtime = '12';
+//$periodtime = 12;
 //$interest = '1.5';
-//$amount_without_interest = 20000000;
-//$totalamount = 26000000;
-//$DueAmount = 20000000;
-//$DateAmount = '2020-10-10';
-//$DueDateAmount  = '2020-10-10';
+//$amount_without_interest = 5200000;
+//$DueAmount = 5200000;
 //$LoanQuality = 'Good';
 //$LoanStatus = 'InProgress';
 //$Reason = "ingin bayar uang pangkal";
 
+//can't be deleted.
+$InvoiceStatus = "Not Paid";
 
 
 // get database connection
@@ -51,24 +47,53 @@ $db = $database->getConnection();
 // prepare user object
 $loan = new loan($db);
 
-$stmt = $loan->InsertLoan($email, $product_id, $loan_status_id, $AgreementDate, $DisbursementDate, $periodtime, $interest, $amount_without_interest, $totalamount, $DueAmount, $DateAmount, $DueDateAmount, $LoanQuality, $LoanStatus, $Reason);
+if($periodtime == null){
+    $loan_arr=array(
+        "success" => 0,
+        "message" => "Submit Loan Failed! Please input the period time",
+    );
+    // make it json format
+    print_r(json_encode($loan_arr));
+    return;
+}
+
+// automatic calculate duedateamount
+$date1 = new DateTime();
+$date2 = new DateTime();
+$DateAmount = $date1;
+$DueDateAmount = $date2->modify("+".$periodtime."month"); // or you can use '-90 day' for deduct
+//$DueDateAmount  = $DueDateAmount ->format('Y-m-d h:i:s');
+//$DateAmount = $DateAmount ->format('Y-m-d h:i:s');
+//echo $DueDateAmount;
+
+// calculate (total amount request and total amount permonth) get from amount without interest.
+$resultprincipal = 0;
+$resultprincipal = $amount_without_interest / $periodtime;
+$resultinterestpermonth = ($interest  * $amount_without_interest / 100);
+$totalinterest = $resultinterestpermonth * $periodtime;
+$totalloanamountrequest = $amount_without_interest+ $totalinterest;
+$totalamountpermonth = $totalloanamountrequest / $periodtime;
+
+$stmt = $loan->InsertLoan($email, $product_id, $loan_status_id, $AgreementDate, $DisbursementDate, $periodtime, $interest, $amount_without_interest, $totalloanamountrequest, $DueAmount, $DateAmount ->format('Y-m-d'),  $DueDateAmount ->format('Y-m-d'), $LoanQuality, $LoanStatus, $Reason);
 if($stmt->rowCount() > 0){
-    if($periodtime != null){
-        while($row = $stmt->fetch())
-        {
+
+    while($row = $stmt->fetch())
+    {
             $loanid = $row['Loan_Id'];
             $accid = $row['acc_id'];
-            $DueDateAmount = $row['DueDateAmount'];
-
+            //$DueDateAmount = $row['DueDateAmount'];
+            $DueDateAmountInvoice  = new DateTime();
             for ($x = -1; $x <= $periodtime; $x++) {
                 echo "No: $x \n";
-                $stmt2 = $loan->InsertInvoice($loanid, $accid, $x, $DueDateAmount);
+                if($x > 0){
+                    $DueDateAmountInvoice->modify("+1 month"); // or you can use '-90 day' for deduct
+                }
+                $stmt2 = $loan->InsertInvoice($loanid, $accid, $x, $totalamountpermonth, $InvoiceStatus, $DueDateAmountInvoice ->format('Y-m-d'));
                 if($stmt2->rowCount() > 0){
                     echo "Success: $x \n";
                 }
             }
         }
-    }
 
     // create array
     $loan_arr=array(
