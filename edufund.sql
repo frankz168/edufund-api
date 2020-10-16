@@ -123,13 +123,15 @@ CREATE TABLE `invoice` (
   `invoice_id` int(10) NOT NULL AUTO_INCREMENT,
   `Loan_id` int(100) NOT NULL,
   `InstallmentNumber` int(100) NOT NULL,
+  `Amount` decimal(18,2) DEFAULT NULL,
+  `Status` varchar(45) DEFAULT NULL,
   `DueDate` date NOT NULL,
   `CreatedAt` date NOT NULL,
   `CreatedBy` varchar(55) NOT NULL,
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,6 +140,7 @@ CREATE TABLE `invoice` (
 
 LOCK TABLES `invoice` WRITE;
 /*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
+INSERT INTO `invoice` VALUES (1,78,1,511333.33,'Not Paid','2020-11-16','2020-10-17','92',NULL,NULL),(2,78,2,511333.33,'Not Paid','2020-12-16','2020-10-17','92',NULL,NULL),(3,78,3,511333.33,'Not Paid','2021-01-16','2020-10-17','92',NULL,NULL),(4,78,4,511333.33,'Not Paid','2021-02-16','2020-10-17','92',NULL,NULL),(5,78,5,511333.33,'Not Paid','2021-03-16','2020-10-17','92',NULL,NULL),(6,78,6,511333.33,'Not Paid','2021-04-16','2020-10-17','92',NULL,NULL),(7,78,7,511333.33,'Not Paid','2021-05-16','2020-10-17','92',NULL,NULL),(8,78,8,511333.33,'Not Paid','2021-06-16','2020-10-17','92',NULL,NULL),(9,78,9,511333.33,'Not Paid','2021-07-16','2020-10-17','92',NULL,NULL),(10,78,10,511333.33,'Not Paid','2021-08-16','2020-10-17','92',NULL,NULL),(11,78,11,511333.33,'Not Paid','2021-09-16','2020-10-17','92',NULL,NULL),(12,78,12,511333.33,'Not Paid','2021-10-16','2020-10-17','92',NULL,NULL),(13,79,1,511333.33,'Not Paid','2020-11-16','2020-10-17','92',NULL,NULL),(14,79,2,511333.33,'Not Paid','2020-12-16','2020-10-17','92',NULL,NULL),(15,79,3,511333.33,'Not Paid','2021-01-16','2020-10-17','92',NULL,NULL),(16,79,4,511333.33,'Not Paid','2021-02-16','2020-10-17','92',NULL,NULL),(17,79,5,511333.33,'Not Paid','2021-03-16','2020-10-17','92',NULL,NULL),(18,79,6,511333.33,'Not Paid','2021-04-16','2020-10-17','92',NULL,NULL),(19,79,7,511333.33,'Not Paid','2021-05-16','2020-10-17','92',NULL,NULL),(20,79,8,511333.33,'Not Paid','2021-06-16','2020-10-17','92',NULL,NULL),(21,79,9,511333.33,'Not Paid','2021-07-16','2020-10-17','92',NULL,NULL),(22,79,10,511333.33,'Not Paid','2021-08-16','2020-10-17','92',NULL,NULL),(23,79,11,511333.33,'Not Paid','2021-09-16','2020-10-17','92',NULL,NULL),(24,79,12,511333.33,'Not Paid','2021-10-16','2020-10-17','92',NULL,NULL),(25,80,1,511333.33,'Not Paid','2020-11-16','2020-10-17','92',NULL,NULL),(26,80,2,511333.33,'Not Paid','2020-12-16','2020-10-17','92',NULL,NULL),(27,80,3,511333.33,'Not Paid','2021-01-16','2020-10-17','92',NULL,NULL),(28,80,4,511333.33,'Not Paid','2021-02-16','2020-10-17','92',NULL,NULL),(29,80,5,511333.33,'Not Paid','2021-03-16','2020-10-17','92',NULL,NULL),(30,80,6,511333.33,'Not Paid','2021-04-16','2020-10-17','92',NULL,NULL),(31,80,7,511333.33,'Not Paid','2021-05-16','2020-10-17','92',NULL,NULL),(32,80,8,511333.33,'Not Paid','2021-06-16','2020-10-17','92',NULL,NULL),(33,80,9,511333.33,'Not Paid','2021-07-16','2020-10-17','92',NULL,NULL),(34,80,10,511333.33,'Not Paid','2021-08-16','2020-10-17','92',NULL,NULL),(35,80,11,511333.33,'Not Paid','2021-09-16','2020-10-17','92',NULL,NULL),(36,80,12,511333.33,'Not Paid','2021-10-16','2020-10-17','92',NULL,NULL);
 /*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +173,7 @@ CREATE TABLE `loan` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`Loan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +182,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (27,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(28,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(29,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(30,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(31,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(32,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(33,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(34,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(35,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(36,92,1,1,'2020-10-10','2020-10-10',6,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(37,92,1,1,'2020-10-10','2020-10-10',12,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL),(38,92,1,1,'2020-10-10','2020-10-10',12,1.5,20000000.00,26000000.00,20000000,'2020-10-10','2020-10-10','Good','InProgress','ingin bayar uang pangkal','2020-10-15','jovitasutanto98@gmail.com',NULL,NULL);
+INSERT INTO `loan` VALUES (80,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-16','2021-10-16','Good','InProgress','ingin bayar uang pangkal','2020-10-17','jovitasutanto98@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -536,13 +539,13 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertInvoice`(in Loan_id int, in acc_id int, in InstallmentNumber int, in DueDate DATE)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertInvoice`(in Loan_id int, in acc_id int, in InstallmentNumber int, in Amount decimal(18,2), in Status varchar(45), in DueDate DATE)
 BEGIN
 
 INSERT INTO `edufund`.`invoice`
-(`Loan_id`,`InstallmentNumber`,`DueDate`,`CreatedAt`,`CreatedBy`)
+(`Loan_id`,`InstallmentNumber`, `Amount`,`Status`,`DueDate`,`CreatedAt`,`CreatedBy`)
 VALUES
-(Loan_id, InstallmentNumber, DueDate, CURDATE(), acc_id);
+(Loan_id, InstallmentNumber, Amount, Status, DueDate, CURDATE(), acc_id);
 
 END ;;
 DELIMITER ;
@@ -831,4 +834,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-15 23:08:43
+-- Dump completed on 2020-10-17  1:18:07
