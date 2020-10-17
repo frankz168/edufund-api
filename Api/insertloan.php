@@ -84,13 +84,13 @@ if($stmt->rowCount() > 0){
             //$DueDateAmount = $row['DueDateAmount'];
             $DueDateAmountInvoice  = new DateTime();
             for ($x = -1; $x <= $periodtime; $x++) {
-                echo "No: $x \n";
+                //echo "No: $x \n";
                 if($x > 0){
                     $DueDateAmountInvoice->modify("+1 month"); // or you can use '-90 day' for deduct
                 }
                 $stmt2 = $loan->InsertInvoice($loanid, $accid, $x, $totalamountpermonth, $InvoiceStatus, $DueDateAmountInvoice ->format('Y-m-d'));
                 if($stmt2->rowCount() > 0){
-                    echo "Success: $x \n";
+                    //echo "Success: $x \n";
                 }
             }
         }
