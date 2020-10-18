@@ -131,7 +131,7 @@ CREATE TABLE `invoice` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `invoice` (
 
 LOCK TABLES `invoice` WRITE;
 /*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
-INSERT INTO `invoice` VALUES (1,78,1,511333.33,'Not Paid','2020-11-16','2020-10-17','92',NULL,NULL),(2,78,2,511333.33,'Not Paid','2020-12-16','2020-10-17','92',NULL,NULL),(3,78,3,511333.33,'Not Paid','2021-01-16','2020-10-17','92',NULL,NULL),(4,78,4,511333.33,'Not Paid','2021-02-16','2020-10-17','92',NULL,NULL),(5,78,5,511333.33,'Not Paid','2021-03-16','2020-10-17','92',NULL,NULL),(6,78,6,511333.33,'Not Paid','2021-04-16','2020-10-17','92',NULL,NULL),(7,78,7,511333.33,'Not Paid','2021-05-16','2020-10-17','92',NULL,NULL),(8,78,8,511333.33,'Not Paid','2021-06-16','2020-10-17','92',NULL,NULL),(9,78,9,511333.33,'Not Paid','2021-07-16','2020-10-17','92',NULL,NULL),(10,78,10,511333.33,'Not Paid','2021-08-16','2020-10-17','92',NULL,NULL),(11,78,11,511333.33,'Not Paid','2021-09-16','2020-10-17','92',NULL,NULL),(12,78,12,511333.33,'Not Paid','2021-10-16','2020-10-17','92',NULL,NULL),(13,79,1,511333.33,'Not Paid','2020-11-16','2020-10-17','92',NULL,NULL),(14,79,2,511333.33,'Not Paid','2020-12-16','2020-10-17','92',NULL,NULL),(15,79,3,511333.33,'Not Paid','2021-01-16','2020-10-17','92',NULL,NULL),(16,79,4,511333.33,'Not Paid','2021-02-16','2020-10-17','92',NULL,NULL),(17,79,5,511333.33,'Not Paid','2021-03-16','2020-10-17','92',NULL,NULL),(18,79,6,511333.33,'Not Paid','2021-04-16','2020-10-17','92',NULL,NULL),(19,79,7,511333.33,'Not Paid','2021-05-16','2020-10-17','92',NULL,NULL),(20,79,8,511333.33,'Not Paid','2021-06-16','2020-10-17','92',NULL,NULL),(21,79,9,511333.33,'Not Paid','2021-07-16','2020-10-17','92',NULL,NULL),(22,79,10,511333.33,'Not Paid','2021-08-16','2020-10-17','92',NULL,NULL),(23,79,11,511333.33,'Not Paid','2021-09-16','2020-10-17','92',NULL,NULL),(24,79,12,511333.33,'Not Paid','2021-10-16','2020-10-17','92',NULL,NULL),(25,80,1,511333.33,'Not Paid','2020-11-16','2020-10-17','92',NULL,NULL),(26,80,2,511333.33,'Not Paid','2020-12-16','2020-10-17','92',NULL,NULL),(27,80,3,511333.33,'Not Paid','2021-01-16','2020-10-17','92',NULL,NULL),(28,80,4,511333.33,'Not Paid','2021-02-16','2020-10-17','92',NULL,NULL),(29,80,5,511333.33,'Not Paid','2021-03-16','2020-10-17','92',NULL,NULL),(30,80,6,511333.33,'Not Paid','2021-04-16','2020-10-17','92',NULL,NULL),(31,80,7,511333.33,'Not Paid','2021-05-16','2020-10-17','92',NULL,NULL),(32,80,8,511333.33,'Not Paid','2021-06-16','2020-10-17','92',NULL,NULL),(33,80,9,511333.33,'Not Paid','2021-07-16','2020-10-17','92',NULL,NULL),(34,80,10,511333.33,'Not Paid','2021-08-16','2020-10-17','92',NULL,NULL),(35,80,11,511333.33,'Not Paid','2021-09-16','2020-10-17','92',NULL,NULL),(36,80,12,511333.33,'Not Paid','2021-10-16','2020-10-17','92',NULL,NULL);
+INSERT INTO `invoice` VALUES (61,83,1,511333.33,'Not Paid','2020-11-18','2020-10-18','92',NULL,NULL),(62,83,2,511333.33,'Not Paid','2020-12-18','2020-10-18','92',NULL,NULL),(63,83,3,511333.33,'Not Paid','2021-01-18','2020-10-18','92',NULL,NULL),(64,83,4,511333.33,'Not Paid','2021-02-18','2020-10-18','92',NULL,NULL),(65,83,5,511333.33,'Not Paid','2021-03-18','2020-10-18','92',NULL,NULL),(66,83,6,511333.33,'Not Paid','2021-04-18','2020-10-18','92',NULL,NULL),(67,83,7,511333.33,'Not Paid','2021-05-18','2020-10-18','92',NULL,NULL),(68,83,8,511333.33,'Not Paid','2021-06-18','2020-10-18','92',NULL,NULL),(69,83,9,511333.33,'Not Paid','2021-07-18','2020-10-18','92',NULL,NULL),(70,83,10,511333.33,'Not Paid','2021-08-18','2020-10-18','92',NULL,NULL),(71,83,11,511333.33,'Not Paid','2021-09-18','2020-10-18','92',NULL,NULL),(72,83,12,511333.33,'Not Paid','2021-10-18','2020-10-18','92',NULL,NULL),(73,84,1,511333.33,'Not Paid','2020-11-18','2020-10-18','92',NULL,NULL),(74,84,2,511333.33,'Not Paid','2020-12-18','2020-10-18','92',NULL,NULL),(75,84,3,511333.33,'Not Paid','2021-01-18','2020-10-18','92',NULL,NULL),(76,84,4,511333.33,'Not Paid','2021-02-18','2020-10-18','92',NULL,NULL),(77,84,5,511333.33,'Not Paid','2021-03-18','2020-10-18','92',NULL,NULL),(78,84,6,511333.33,'Not Paid','2021-04-18','2020-10-18','92',NULL,NULL),(79,84,7,511333.33,'Not Paid','2021-05-18','2020-10-18','92',NULL,NULL),(80,84,8,511333.33,'Not Paid','2021-06-18','2020-10-18','92',NULL,NULL),(81,84,9,511333.33,'Not Paid','2021-07-18','2020-10-18','92',NULL,NULL),(82,84,10,511333.33,'Not Paid','2021-08-18','2020-10-18','92',NULL,NULL),(83,84,11,511333.33,'Not Paid','2021-09-18','2020-10-18','92',NULL,NULL),(84,84,12,511333.33,'Not Paid','2021-10-18','2020-10-18','92',NULL,NULL),(85,85,1,511333.33,'Not Paid','2020-11-18','2020-10-18','92',NULL,NULL),(86,85,2,511333.33,'Not Paid','2020-12-18','2020-10-18','92',NULL,NULL),(87,85,3,511333.33,'Not Paid','2021-01-18','2020-10-18','92',NULL,NULL),(88,85,4,511333.33,'Not Paid','2021-02-18','2020-10-18','92',NULL,NULL),(89,85,5,511333.33,'Not Paid','2021-03-18','2020-10-18','92',NULL,NULL),(90,85,6,511333.33,'Not Paid','2021-04-18','2020-10-18','92',NULL,NULL),(91,85,7,511333.33,'Not Paid','2021-05-18','2020-10-18','92',NULL,NULL),(92,85,8,511333.33,'Not Paid','2021-06-18','2020-10-18','92',NULL,NULL),(93,85,9,511333.33,'Not Paid','2021-07-18','2020-10-18','92',NULL,NULL),(94,85,10,511333.33,'Not Paid','2021-08-18','2020-10-18','92',NULL,NULL),(95,85,11,511333.33,'Not Paid','2021-09-18','2020-10-18','92',NULL,NULL),(96,85,12,511333.33,'Not Paid','2021-10-18','2020-10-18','92',NULL,NULL);
 /*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +173,7 @@ CREATE TABLE `loan` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`Loan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +182,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (80,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-16','2021-10-16','Good','InProgress','ingin bayar uang pangkal','2020-10-17','jovitasutanto98@gmail.com',NULL,NULL);
+INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Approved','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -569,23 +569,31 @@ in DueDateAmount DATE, in LoanQuality VARCHAR(25), in LoanStatus VARCHAR(25),
 in Reason varchar(55))
 BEGIN
     DECLARE AccountId INT DEFAULT 0;
+    DECLARE TotalLoanProcess INT DEFAULT 0;
+
     SELECT acc_id into AccountId
     FROM account
 	WHERE account.email = email;
-    
-    insert into loan(`acc_id`,`product_id`,`loan_status_id`,
-	`AgreementDate`,`DisbursementDate`,`periodtime`,`Interest`,`amount_without_interest`,
-	`totalamount`,`DueAmount`,`DateAmount`,`DueDateAmount`,`LoanQuality`,`LoanStatus`,`Reason`,
-	`CreatedAt`,`CreatedBy`) 
-    values (AccountId, product_id, loan_status_id, AgreementDate, DisbursementDate, periodtime, interest, amount_without_interest, totalamount, 
-    DueAmount, DateAmount, DueDateAmount, LoanQuality, LoanStatus,
-    Reason, CURDATE(), email);
 
-    IF(ROW_COUNT() > 0) THEN
-		SELECT loan.Loan_Id, loan.acc_id, loan.DueDateAmount FROM loan
-        WHERE loan.acc_id = AccountId
-        ORDER BY loan.Loan_Id DESC
-        LIMIT 1;
+    SELECT COUNT(*) into TotalLoanProcess
+	FROM loan
+	WHERE loan.LoanStatus = 'In Process' || loan.LoanStatus = 'Approved';
+    
+	IF(TotalLoanProcess = 0) THEN
+		insert into loan(`acc_id`,`product_id`,`loan_status_id`,
+		`AgreementDate`,`DisbursementDate`,`periodtime`,`Interest`,`amount_without_interest`,
+		`totalamount`,`DueAmount`,`DateAmount`,`DueDateAmount`,`LoanQuality`,`LoanStatus`,`Reason`,
+		`CreatedAt`,`CreatedBy`) 
+		values (AccountId, product_id, loan_status_id, AgreementDate, DisbursementDate, periodtime, interest, amount_without_interest, totalamount, 
+		DueAmount, DateAmount, DueDateAmount, LoanQuality, LoanStatus,
+		Reason, CURDATE(), email);
+
+		IF(ROW_COUNT() > 0) THEN
+			SELECT loan.Loan_Id, loan.acc_id, loan.DueDateAmount FROM loan
+			WHERE loan.acc_id = AccountId
+			ORDER BY loan.Loan_Id DESC
+			LIMIT 1;
+		END IF;
 	END IF;
     
 END ;;
@@ -834,4 +842,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-17  1:18:07
+-- Dump completed on 2020-10-18 20:35:43
