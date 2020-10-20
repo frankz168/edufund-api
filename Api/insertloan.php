@@ -6,7 +6,7 @@ include_once '../Controller/loan.php';
 
 
 $data = json_decode(file_get_contents('php://input'), true);
-$email=$_GET['email'];
+$email=$data['email'];
 $product_id = $data['product_id'];
 $loan_status_id = $data['loan_status_id'];
 $AgreementDate = $data['AgreementDate'];

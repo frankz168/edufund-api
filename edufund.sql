@@ -1,6 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `edufund` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `edufund`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
 --
 -- Host: 127.0.0.1    Database: edufund
 -- ------------------------------------------------------
@@ -28,7 +26,7 @@ CREATE TABLE `account` (
   `acc_id` int(4) NOT NULL AUTO_INCREMENT,
   `password` varchar(999) NOT NULL,
   `email` varchar(55) NOT NULL,
-  `phone_number` int(55) NOT NULL,
+  `phone_number` varchar(55) NOT NULL,
   `status` varchar(55) NOT NULL,
   PRIMARY KEY (`acc_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=latin1;
@@ -40,7 +38,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com',89743232,'Active'),(2,'jacky123','jacky@gmail.com',89632332,'Active'),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com',124,'Active'),(6,'3c19eaa44d299bfda191df4dcfd5d73cfe2f591cc17791c7ae09257','jovita.sutanto97@gmail.com',215451677,'Active'),(76,'admin123','squall93@gmail.com',12345,'Disactive'),(77,'admin123','tidus93@gmail.com',12345,'Disactive'),(84,'admin123','love21@gmail.com',12345877,'Disactive'),(85,'admin123','love22@gmail.com',123458727,'Disactive'),(86,'admin123','love223@gmail.com',1234587277,'Disactive'),(91,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com',1242,'Active'),(92,'e4671fcdc5509e8bf837bb19bb0eb77044aeaca9418fa9e49cf2376','jovitasutanto98@gmail.com',478485,'Active');
+INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com','89743232','Active'),(2,'jacky123','jacky@gmail.com','89632332','Active'),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com','124','Active'),(6,'59a0851423c3bed7438fe2c10f2a126a6c95c8ba600ceba6a16d443','jovita.sutanto97@gmail.com','215451677','Active'),(76,'admin123','squall93@gmail.com','12345','Disactive'),(77,'admin123','tidus93@gmail.com','12345','Disactive'),(84,'admin123','love21@gmail.com','12345877','Disactive'),(85,'admin123','love22@gmail.com','123458727','Disactive'),(86,'admin123','love223@gmail.com','1234587277','Disactive'),(91,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com','1242','Active'),(92,'e4671fcdc5509e8bf837bb19bb0eb77044aeaca9418fa9e49cf2376','jovitasutanto98@gmail.com','0895333940620','Active');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +129,7 @@ CREATE TABLE `invoice` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +138,6 @@ CREATE TABLE `invoice` (
 
 LOCK TABLES `invoice` WRITE;
 /*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
-INSERT INTO `invoice` VALUES (61,83,1,511333.33,'Not Paid','2020-11-18','2020-10-18','92',NULL,NULL),(62,83,2,511333.33,'Not Paid','2020-12-18','2020-10-18','92',NULL,NULL),(63,83,3,511333.33,'Not Paid','2021-01-18','2020-10-18','92',NULL,NULL),(64,83,4,511333.33,'Not Paid','2021-02-18','2020-10-18','92',NULL,NULL),(65,83,5,511333.33,'Not Paid','2021-03-18','2020-10-18','92',NULL,NULL),(66,83,6,511333.33,'Not Paid','2021-04-18','2020-10-18','92',NULL,NULL),(67,83,7,511333.33,'Not Paid','2021-05-18','2020-10-18','92',NULL,NULL),(68,83,8,511333.33,'Not Paid','2021-06-18','2020-10-18','92',NULL,NULL),(69,83,9,511333.33,'Not Paid','2021-07-18','2020-10-18','92',NULL,NULL),(70,83,10,511333.33,'Not Paid','2021-08-18','2020-10-18','92',NULL,NULL),(71,83,11,511333.33,'Not Paid','2021-09-18','2020-10-18','92',NULL,NULL),(72,83,12,511333.33,'Not Paid','2021-10-18','2020-10-18','92',NULL,NULL),(73,84,1,511333.33,'Not Paid','2020-11-18','2020-10-18','92',NULL,NULL),(74,84,2,511333.33,'Not Paid','2020-12-18','2020-10-18','92',NULL,NULL),(75,84,3,511333.33,'Not Paid','2021-01-18','2020-10-18','92',NULL,NULL),(76,84,4,511333.33,'Not Paid','2021-02-18','2020-10-18','92',NULL,NULL),(77,84,5,511333.33,'Not Paid','2021-03-18','2020-10-18','92',NULL,NULL),(78,84,6,511333.33,'Not Paid','2021-04-18','2020-10-18','92',NULL,NULL),(79,84,7,511333.33,'Not Paid','2021-05-18','2020-10-18','92',NULL,NULL),(80,84,8,511333.33,'Not Paid','2021-06-18','2020-10-18','92',NULL,NULL),(81,84,9,511333.33,'Not Paid','2021-07-18','2020-10-18','92',NULL,NULL),(82,84,10,511333.33,'Not Paid','2021-08-18','2020-10-18','92',NULL,NULL),(83,84,11,511333.33,'Not Paid','2021-09-18','2020-10-18','92',NULL,NULL),(84,84,12,511333.33,'Not Paid','2021-10-18','2020-10-18','92',NULL,NULL),(85,85,1,511333.33,'Not Paid','2020-11-18','2020-10-18','92',NULL,NULL),(86,85,2,511333.33,'Not Paid','2020-12-18','2020-10-18','92',NULL,NULL),(87,85,3,511333.33,'Not Paid','2021-01-18','2020-10-18','92',NULL,NULL),(88,85,4,511333.33,'Not Paid','2021-02-18','2020-10-18','92',NULL,NULL),(89,85,5,511333.33,'Not Paid','2021-03-18','2020-10-18','92',NULL,NULL),(90,85,6,511333.33,'Not Paid','2021-04-18','2020-10-18','92',NULL,NULL),(91,85,7,511333.33,'Not Paid','2021-05-18','2020-10-18','92',NULL,NULL),(92,85,8,511333.33,'Not Paid','2021-06-18','2020-10-18','92',NULL,NULL),(93,85,9,511333.33,'Not Paid','2021-07-18','2020-10-18','92',NULL,NULL),(94,85,10,511333.33,'Not Paid','2021-08-18','2020-10-18','92',NULL,NULL),(95,85,11,511333.33,'Not Paid','2021-09-18','2020-10-18','92',NULL,NULL),(96,85,12,511333.33,'Not Paid','2021-10-18','2020-10-18','92',NULL,NULL);
 /*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +179,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Approved','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL);
+INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +251,7 @@ DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile` (
   `profile_id` int(10) NOT NULL AUTO_INCREMENT,
   `acc_id` int(11) NOT NULL,
-  `idcardnumber` int(16) DEFAULT NULL,
+  `idcardnumber` varchar(16) NOT NULL,
   `placeofbirth` varchar(50) DEFAULT NULL,
   `dateofbirth` date DEFAULT NULL,
   `Gender` enum('L','P') DEFAULT NULL,
@@ -289,7 +286,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (3,83,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL),(6,87,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(7,88,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(8,89,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL),(9,90,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','frankys.sutanto93@gmail.com',NULL,NULL),(10,91,12344556,'Jakarta','1993-08-16','L','Kristen','','','Not Married','S1',1,'','Indonesia','test','IT','Active','test','test','test','test','Data','Active','2020-10-03','franky.sutanto93@gmail.com','2020-10-05','10'),(11,92,58859595,'Jakarta','1997-10-04','P','Kristen','...','...','Not Married','S1',1,'...','Indonesia','WNI','Technology','Intern','Internship','1000000','Store','1000000','Data','Active','2020-10-10','jovitasutanto98@gmail.com','2020-10-10','11'),(12,93,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-12','',NULL,NULL);
+INSERT INTO `profile` VALUES (3,83,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL),(6,87,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(7,88,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(8,89,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL),(9,90,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','frankys.sutanto93@gmail.com',NULL,NULL),(10,91,'12344556','Jakarta','1993-08-16','L','Kristen','','','Not Married','S1',1,'','Indonesia','test','IT','Active','test','test','test','test','Data','Active','2020-10-03','franky.sutanto93@gmail.com','2020-10-05','10'),(11,92,'3173044410970002','Jakarta','1997-10-04','P','Kristen','...','...','Not Married','S1',1,'...','Indonesia','WNI','Technology','Intern','Internship','1000000','Store','1000000','Data','Active','2020-10-10','jovitasutanto98@gmail.com','2020-10-10','11');
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -624,6 +621,29 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LoanReport` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LoanReport`()
+BEGIN
+
+select account.email, loan.AgreementDate, loan.periodtime, loan.amount_without_interest, loan.totalamount, loan.DateAmount, loan.LoanStatus
+from account, loan
+where account.email = loan.CreatedBy
+order by loan.CreatedBy asc;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ResetPassword` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -842,4 +862,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-18 20:35:43
+-- Dump completed on 2020-10-20 14:41:58
