@@ -129,7 +129,7 @@ CREATE TABLE `invoice` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -633,11 +633,10 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `LoanReport`()
 BEGIN
-
-select account.email, loan.AgreementDate, loan.periodtime, loan.amount_without_interest, loan.totalamount, loan.DateAmount, loan.LoanStatus
-from account, loan
-where account.email = loan.CreatedBy
-order by loan.CreatedBy asc;
+SELECT loan_id, AgreementDate, periodtime, amount_without_interest, totalamount, LoanStatus, CreatedBy FROM loan
+WHERE
+loan.DateAmount = 'ALL' OR loan.DateAmount >= DateAmount/* start parameter */
+and loan.CreatedAt = 'ALL' OR loan.CreatedAt <= CreatedAt; /* end parameter */
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -862,4 +861,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-20 14:41:58
+-- Dump completed on 2020-10-20 19:37:24
