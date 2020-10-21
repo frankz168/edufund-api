@@ -631,12 +631,21 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `LoanReport`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LoanReport`(in email varchar(55), in startdate date, in enddate date)
 BEGIN
-SELECT loan_id, AgreementDate, periodtime, amount_without_interest, totalamount, LoanStatus, CreatedBy FROM loan
+Declare AccountId int default 0;
+Declare startdate date;
+Declare enddate date;
+
+	SELECT acc_id into AccountId
+    FROM account
+	WHERE account.email = email;
+    
+SELECT email, AgreementDate, periodtime, amount_without_interest, totalamount, LoanStatus FROM loan
 WHERE
-loan.DateAmount = 'ALL' OR loan.DateAmount >= DateAmount/* start parameter */
-and loan.CreatedAt = 'ALL' OR loan.CreatedAt <= CreatedAt; /* end parameter */
+(acc_id = AccountId)
+AND (loan.CreatedAt>=startdate) And (loan.CreatedAt<=enddate)
+ORDER BY loan_id DESC;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -861,4 +870,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-20 19:37:24
+-- Dump completed on 2020-10-21 14:50:51

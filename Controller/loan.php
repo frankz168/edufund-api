@@ -94,4 +94,24 @@ class loan
         }
     }
 
+    public function LoanReport($email, $startdate, $enddate){
+        // call sp for get loan report
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL LoanReport('$email','$startdate', '$enddate')") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            $stmt->bindParam('startdate',$startdate);
+            $stmt->bindParam('enddate',$enddate);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
+
 }
