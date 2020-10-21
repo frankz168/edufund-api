@@ -94,7 +94,7 @@ class loan
         }
     }
 
-    public function LoanReport($email, $startdate, $enddate){
+    public function GetLoanReport($email, $startdate, $enddate){
         // call sp for get loan report
         try {
             require_once '../Database/database.php';

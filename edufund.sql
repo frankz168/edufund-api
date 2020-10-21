@@ -645,7 +645,7 @@ Declare AccountId int default 0;
 SELECT email, loan_id, AgreementDate, periodtime, amount_without_interest, totalamount, LoanStatus
      FROM loan
 WHERE
-(acc_id = AccountId)
+(acc_id = AccountId) and LoanStatus = 'Done'
 AND CreatedAt between `startdate` and `enddate`
 ORDER BY loan_id DESC;
 END ;;
@@ -872,4 +872,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-21 21:24:06
+-- Dump completed on 2020-10-21 22:04:03
