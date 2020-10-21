@@ -30,6 +30,7 @@ if($stmt->rowCount() > 0){
         $loanreport_arr[]=array(
             "status" => true,
             "email" => $row['email'],
+            "loan_id" => $row['loan_id'],
             "AgreementDate" => $row['AgreementDate'],
             "periodtime" => $row['periodtime'],
             "amount_without_interest" => $row['amount_without_interest'],

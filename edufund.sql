@@ -633,18 +633,20 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `LoanReport`(in email varchar(55), in startdate date, in enddate date)
 BEGIN
+
 Declare AccountId int default 0;
-Declare startdate date;
-Declare enddate date;
+
 
 	SELECT acc_id into AccountId
     FROM account
 	WHERE account.email = email;
+  
     
-SELECT email, AgreementDate, periodtime, amount_without_interest, totalamount, LoanStatus FROM loan
+SELECT email, loan_id, AgreementDate, periodtime, amount_without_interest, totalamount, LoanStatus
+     FROM loan
 WHERE
 (acc_id = AccountId)
-AND (loan.CreatedAt>=startdate) And (loan.CreatedAt<=enddate)
+AND CreatedAt between `startdate` and `enddate`
 ORDER BY loan_id DESC;
 END ;;
 DELIMITER ;
@@ -870,4 +872,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-21 14:50:51
+-- Dump completed on 2020-10-21 21:24:06
