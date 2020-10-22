@@ -114,4 +114,22 @@ class loan
         }
     }
 
+    public function GetLoanHistory($email){
+        // call sp for get loan report
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL LoanHistory('$email')") ;
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
+
 }

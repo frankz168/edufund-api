@@ -8,7 +8,7 @@ class common
 
     public function linkUrl()
     {
-        $value = "http://192.168.0.19/";
+        $value = "http://192.168.0.17/";
 
         return $value;
     }
