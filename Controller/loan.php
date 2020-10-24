@@ -132,4 +132,47 @@ class loan
         }
     }
 
+
+    public function GetLoanBalance($email){
+        // call sp for get loan report
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL GetLoanBalance('$email')");
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    public function UpdateManualPaidLoan($email, $PaidAmount){
+        // call sp for manual paid loan hardcode using to testing. not used in react js.
+        try {
+            require_once '../Database/database.php';
+            $query = ("CALL UpdateManualPaidLoan('$email', '$PaidAmount')");
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $stmt->bindParam('email',$email);
+            $stmt->bindParam('PaidAmount',$PaidAmount);
+            return $stmt;
+
+        }
+        catch(Exception $e)
+        {
+            print_r($e->getMessage());
+        }
+    }
+
+
+
+
+
 }

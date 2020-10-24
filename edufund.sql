@@ -1,4 +1,6 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
+CREATE DATABASE  IF NOT EXISTS `edufund` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `edufund`;
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: edufund
 -- ------------------------------------------------------
@@ -129,7 +131,7 @@ CREATE TABLE `invoice` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +140,7 @@ CREATE TABLE `invoice` (
 
 LOCK TABLES `invoice` WRITE;
 /*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
-INSERT INTO `invoice` VALUES (13,86,1,983333.33,'Not Paid','2020-11-22','2020-10-22','91',NULL,NULL),(14,86,2,983333.33,'Not Paid','2020-12-22','2020-10-22','91',NULL,NULL),(15,86,3,983333.33,'Not Paid','2021-01-22','2020-10-22','91',NULL,NULL),(16,86,4,983333.33,'Not Paid','2021-02-22','2020-10-22','91',NULL,NULL),(17,86,5,983333.33,'Not Paid','2021-03-22','2020-10-22','91',NULL,NULL),(18,86,6,983333.33,'Not Paid','2021-04-22','2020-10-22','91',NULL,NULL),(19,86,7,983333.33,'Not Paid','2021-05-22','2020-10-22','91',NULL,NULL),(20,86,8,983333.33,'Not Paid','2021-06-22','2020-10-22','91',NULL,NULL),(21,86,9,983333.33,'Not Paid','2021-07-22','2020-10-22','91',NULL,NULL),(22,86,10,983333.33,'Not Paid','2021-08-22','2020-10-22','91',NULL,NULL),(23,86,11,983333.33,'Not Paid','2021-09-22','2020-10-22','91',NULL,NULL),(24,86,12,983333.33,'Not Paid','2021-10-22','2020-10-22','91',NULL,NULL);
+INSERT INTO `invoice` VALUES (13,86,1,983333.33,'Not Paid','2020-11-22','2020-10-22','91',NULL,NULL),(14,86,2,983333.33,'Not Paid','2020-12-22','2020-10-22','91',NULL,NULL),(15,86,3,983333.33,'Not Paid','2021-01-22','2020-10-22','91',NULL,NULL),(16,86,4,983333.33,'Not Paid','2021-02-22','2020-10-22','91',NULL,NULL),(17,86,5,983333.33,'Not Paid','2021-03-22','2020-10-22','91',NULL,NULL),(18,86,6,983333.33,'Not Paid','2021-04-22','2020-10-22','91',NULL,NULL),(19,86,7,983333.33,'Not Paid','2021-05-22','2020-10-22','91',NULL,NULL),(20,86,8,983333.33,'Not Paid','2021-06-22','2020-10-22','91',NULL,NULL),(21,86,9,983333.33,'Not Paid','2021-07-22','2020-10-22','91',NULL,NULL),(22,86,10,983333.33,'Not Paid','2021-08-22','2020-10-22','91',NULL,NULL),(23,86,11,983333.33,'Not Paid','2021-09-22','2020-10-22','91',NULL,NULL),(24,86,12,983333.33,'Not Paid','2021-10-22','2020-10-22','91',NULL,NULL),(25,87,1,511333.33,'Not Paid','2020-11-24','2020-10-24','92',NULL,NULL),(26,87,2,511333.33,'Not Paid','2020-12-24','2020-10-24','92',NULL,NULL),(27,87,3,511333.33,'Not Paid','2021-01-24','2020-10-24','92',NULL,NULL),(28,87,4,511333.33,'Not Paid','2021-02-24','2020-10-24','92',NULL,NULL),(29,87,5,511333.33,'Not Paid','2021-03-24','2020-10-24','92',NULL,NULL),(30,87,6,511333.33,'Not Paid','2021-04-24','2020-10-24','92',NULL,NULL),(31,87,7,511333.33,'Not Paid','2021-05-24','2020-10-24','92',NULL,NULL),(32,87,8,511333.33,'Not Paid','2021-06-24','2020-10-24','92',NULL,NULL),(33,87,9,511333.33,'Not Paid','2021-07-24','2020-10-24','92',NULL,NULL),(34,87,10,511333.33,'Not Paid','2021-08-24','2020-10-24','92',NULL,NULL),(35,87,11,511333.33,'Not Paid','2021-09-24','2020-10-24','92',NULL,NULL),(36,87,12,511333.33,'Not Paid','2021-10-24','2020-10-24','92',NULL,NULL);
 /*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,6 +162,8 @@ CREATE TABLE `loan` (
   `Interest` decimal(18,1) DEFAULT NULL,
   `amount_without_interest` decimal(18,2) DEFAULT NULL,
   `totalamount` decimal(18,2) DEFAULT NULL,
+  `Balance` decimal(18,2) DEFAULT NULL,
+  `PaidAmount` decimal(18,2) DEFAULT NULL,
   `DueAmount` int(20) DEFAULT NULL,
   `DateAmount` date DEFAULT NULL,
   `DueDateAmount` date DEFAULT NULL,
@@ -171,7 +175,7 @@ CREATE TABLE `loan` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`Loan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +184,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(86,91,1,1,'2020-10-19','2020-10-19',12,1.5,10000000.00,11800000.00,10000000,'2020-10-22','2021-10-22','Good','Approved','Ingin bayar uang pangkal kuliah','2020-10-22','franky.sutanto93@gmail.com',NULL,NULL);
+INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(86,91,1,1,'2020-10-19','2020-10-19',12,1.5,10000000.00,11800000.00,11800000.00,NULL,10000000,'2020-10-22','2021-10-22','Good','Approved','Ingin bayar uang pangkal kuliah','2020-10-22','franky.sutanto93@gmail.com',NULL,NULL),(87,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,0.04,511333.33,5200000,'2020-10-24','2021-10-24','Good','Approved','ingin bayar uang pangkal','2020-10-24','jovitasutanto98@gmail.com','2020-10-24','jovitasutanto98@gmail.com');
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -479,6 +483,41 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetLoanBalance` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetLoanBalance`(in email varchar(55))
+BEGIN
+	Declare AccountId int default 0;
+	Declare LoanId int default 0;
+
+	SELECT acc_id into AccountId
+	FROM account
+	WHERE account.email = email;
+
+	select loan_id into LoanId
+	from loan
+	where loan.acc_id = AccountId AND loan.LoanStatus = 'Approved'
+	LIMIT 1;
+
+	SELECT loan_id, acc_id, email, amount_without_interest, totalamount, Balance, PaidAmount, LoanStatus
+    FROM loan
+    WHERE loan.loan_id = LoanId AND loan.LoanStatus = 'Approved'
+    LIMIT 1;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `GetProfileAccountByEmail` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -575,14 +614,15 @@ BEGIN
 
     SELECT COUNT(*) into TotalLoanProcess
 	FROM loan
-	WHERE loan.LoanStatus = 'In Process' || loan.LoanStatus = 'Approved';
+	WHERE loan.LoanStatus = 'In Process' || loan.LoanStatus = 'Approved'
+    AND loan.acc_id = AccountId;
     
 	IF(TotalLoanProcess = 0) THEN
 		insert into loan(`acc_id`,`product_id`,`loan_status_id`,
 		`AgreementDate`,`DisbursementDate`,`periodtime`,`Interest`,`amount_without_interest`,
-		`totalamount`,`DueAmount`,`DateAmount`,`DueDateAmount`,`LoanQuality`,`LoanStatus`,`Reason`,
+		`totalamount`, `Balance`, `PaidAmount`,`DueAmount`,`DateAmount`,`DueDateAmount`,`LoanQuality`,`LoanStatus`,`Reason`,
 		`CreatedAt`,`CreatedBy`) 
-		values (AccountId, product_id, loan_status_id, AgreementDate, DisbursementDate, periodtime, interest, amount_without_interest, totalamount, 
+		values (AccountId, product_id, loan_status_id, AgreementDate, DisbursementDate, periodtime, interest, amount_without_interest, totalamount, totalamount, 0, 
 		DueAmount, DateAmount, DueDateAmount, LoanQuality, LoanStatus,
 		Reason, CURDATE(), email);
 
@@ -643,7 +683,8 @@ WHERE account.email = email;
 
 select loan_id into LoanId
 from loan
-where loan.acc_id = AccountId;
+where loan.acc_id = AccountId AND loan.LoanStatus = 'Approved'
+LIMIT 1;
 
 
 select InstallmentNumber as Monthly, Amount, DueDate, Status 
@@ -752,6 +793,46 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateManualPaidLoan` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateManualPaidLoan`(in `email` varchar(55), in `PaidAmount` decimal(18,2))
+BEGIN
+
+	Declare AccountId int default 0;
+	Declare LoanId int default 0;
+
+	SELECT acc_id into AccountId
+	FROM account
+	WHERE account.email = email;
+
+	select loan_id into LoanId
+	from loan
+	where loan.acc_id = AccountId AND loan.LoanStatus = 'Approved'
+    LIMIT 1;
+
+  IF(ROW_COUNT() > 0) THEN
+	UPDATE loan
+	SET loan.PaidAmount = PaidAmount,
+	loan.Balance = loan.Balance - PaidAmount,
+    loan.LoanStatus = CASE WHEN loan.Balance < 0.5 THEN 'Done' ELSE loan.LoanStatus END,
+    loan.UpdatedAt = CURDATE(),
+    loan.UpdatedBy = email
+	WHERE loan.loan_id = LoanId;
+  END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UpdateProfileAccount` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -839,7 +920,7 @@ BEGIN
     profile.Type = Type,
     profile.Status = Status,
     profile.UpdatedAt = CURDATE(),
-    profile.UpdatedBy = ProfileId
+    profile.UpdatedBy = email
 	WHERE profile.profile_id = ProfileId;
 
 
@@ -909,4 +990,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-22 18:24:18
+-- Dump completed on 2020-10-25  0:02:32
