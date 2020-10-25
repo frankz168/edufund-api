@@ -152,15 +152,16 @@ class loan
     }
 
 
-    public function UpdateManualPaidLoan($email, $PaidAmount){
+    public function UpdateManualPaidLoan($email, $InstallmentNumber, $PaidAmount){
         // call sp for manual paid loan hardcode using to testing. not used in react js.
         try {
             require_once '../Database/database.php';
-            $query = ("CALL UpdateManualPaidLoan('$email', '$PaidAmount')");
+            $query = ("CALL UpdateManualPaidLoan('$email', '$InstallmentNumber', '$PaidAmount')");
             // prepare query statement
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
             $stmt->bindParam('email',$email);
+            $stmt->bindParam('InstallmentNumber',$InstallmentNumber);
             $stmt->bindParam('PaidAmount',$PaidAmount);
             return $stmt;
 

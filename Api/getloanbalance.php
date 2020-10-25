@@ -27,6 +27,7 @@ if($stmt->rowCount() > 0){
             "loan_id" => $row['loan_id'],
             "acc_id" => $row['acc_id'],
             "email" => $row['email'],
+            "periodtime" => $row['periodtime'],
             "NetAmount" => $row['amount_without_interest'],
             "totalamount" => $row['totalamount'],
             "Balance" => $row['Balance'],

@@ -140,7 +140,7 @@ CREATE TABLE `invoice` (
 
 LOCK TABLES `invoice` WRITE;
 /*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
-INSERT INTO `invoice` VALUES (13,86,1,983333.33,'Not Paid','2020-11-22','2020-10-22','91',NULL,NULL),(14,86,2,983333.33,'Not Paid','2020-12-22','2020-10-22','91',NULL,NULL),(15,86,3,983333.33,'Not Paid','2021-01-22','2020-10-22','91',NULL,NULL),(16,86,4,983333.33,'Not Paid','2021-02-22','2020-10-22','91',NULL,NULL),(17,86,5,983333.33,'Not Paid','2021-03-22','2020-10-22','91',NULL,NULL),(18,86,6,983333.33,'Not Paid','2021-04-22','2020-10-22','91',NULL,NULL),(19,86,7,983333.33,'Not Paid','2021-05-22','2020-10-22','91',NULL,NULL),(20,86,8,983333.33,'Not Paid','2021-06-22','2020-10-22','91',NULL,NULL),(21,86,9,983333.33,'Not Paid','2021-07-22','2020-10-22','91',NULL,NULL),(22,86,10,983333.33,'Not Paid','2021-08-22','2020-10-22','91',NULL,NULL),(23,86,11,983333.33,'Not Paid','2021-09-22','2020-10-22','91',NULL,NULL),(24,86,12,983333.33,'Not Paid','2021-10-22','2020-10-22','91',NULL,NULL),(25,87,1,511333.33,'Not Paid','2020-11-24','2020-10-24','92',NULL,NULL),(26,87,2,511333.33,'Not Paid','2020-12-24','2020-10-24','92',NULL,NULL),(27,87,3,511333.33,'Not Paid','2021-01-24','2020-10-24','92',NULL,NULL),(28,87,4,511333.33,'Not Paid','2021-02-24','2020-10-24','92',NULL,NULL),(29,87,5,511333.33,'Not Paid','2021-03-24','2020-10-24','92',NULL,NULL),(30,87,6,511333.33,'Not Paid','2021-04-24','2020-10-24','92',NULL,NULL),(31,87,7,511333.33,'Not Paid','2021-05-24','2020-10-24','92',NULL,NULL),(32,87,8,511333.33,'Not Paid','2021-06-24','2020-10-24','92',NULL,NULL),(33,87,9,511333.33,'Not Paid','2021-07-24','2020-10-24','92',NULL,NULL),(34,87,10,511333.33,'Not Paid','2021-08-24','2020-10-24','92',NULL,NULL),(35,87,11,511333.33,'Not Paid','2021-09-24','2020-10-24','92',NULL,NULL),(36,87,12,511333.33,'Not Paid','2021-10-24','2020-10-24','92',NULL,NULL);
+INSERT INTO `invoice` VALUES (13,86,1,983333.33,'Not Paid','2020-11-22','2020-10-22','91',NULL,NULL),(14,86,2,983333.33,'Not Paid','2020-12-22','2020-10-22','91',NULL,NULL),(15,86,3,983333.33,'Not Paid','2021-01-22','2020-10-22','91',NULL,NULL),(16,86,4,983333.33,'Not Paid','2021-02-22','2020-10-22','91',NULL,NULL),(17,86,5,983333.33,'Not Paid','2021-03-22','2020-10-22','91',NULL,NULL),(18,86,6,983333.33,'Not Paid','2021-04-22','2020-10-22','91',NULL,NULL),(19,86,7,983333.33,'Not Paid','2021-05-22','2020-10-22','91',NULL,NULL),(20,86,8,983333.33,'Not Paid','2021-06-22','2020-10-22','91',NULL,NULL),(21,86,9,983333.33,'Not Paid','2021-07-22','2020-10-22','91',NULL,NULL),(22,86,10,983333.33,'Not Paid','2021-08-22','2020-10-22','91',NULL,NULL),(23,86,11,983333.33,'Not Paid','2021-09-22','2020-10-22','91',NULL,NULL),(24,86,12,983333.33,'Not Paid','2021-10-22','2020-10-22','91',NULL,NULL),(25,87,1,511333.33,'Paid','2020-11-24','2020-10-24','92',NULL,NULL),(26,87,2,511333.33,'Paid','2020-12-24','2020-10-24','92',NULL,NULL),(27,87,3,511333.33,'Not Paid','2021-01-24','2020-10-24','92',NULL,NULL),(28,87,4,511333.33,'Not Paid','2021-02-24','2020-10-24','92',NULL,NULL),(29,87,5,511333.33,'Not Paid','2021-03-24','2020-10-24','92',NULL,NULL),(30,87,6,511333.33,'Not Paid','2021-04-24','2020-10-24','92',NULL,NULL),(31,87,7,511333.33,'Not Paid','2021-05-24','2020-10-24','92',NULL,NULL),(32,87,8,511333.33,'Not Paid','2021-06-24','2020-10-24','92',NULL,NULL),(33,87,9,511333.33,'Not Paid','2021-07-24','2020-10-24','92',NULL,NULL),(34,87,10,511333.33,'Not Paid','2021-08-24','2020-10-24','92',NULL,NULL),(35,87,11,511333.33,'Not Paid','2021-09-24','2020-10-24','92',NULL,NULL),(36,87,12,511333.33,'Not Paid','2021-10-24','2020-10-24','92',NULL,NULL);
 /*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,6 +163,7 @@ CREATE TABLE `loan` (
   `amount_without_interest` decimal(18,2) DEFAULT NULL,
   `totalamount` decimal(18,2) DEFAULT NULL,
   `Balance` decimal(18,2) DEFAULT NULL,
+  `PaidAmountCount` int(11) DEFAULT NULL,
   `PaidAmount` decimal(18,2) DEFAULT NULL,
   `DueAmount` int(20) DEFAULT NULL,
   `DateAmount` date DEFAULT NULL,
@@ -184,7 +185,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(86,91,1,1,'2020-10-19','2020-10-19',12,1.5,10000000.00,11800000.00,11800000.00,NULL,10000000,'2020-10-22','2021-10-22','Good','Approved','Ingin bayar uang pangkal kuliah','2020-10-22','franky.sutanto93@gmail.com',NULL,NULL),(87,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,0.04,511333.33,5200000,'2020-10-24','2021-10-24','Good','Approved','ingin bayar uang pangkal','2020-10-24','jovitasutanto98@gmail.com','2020-10-24','jovitasutanto98@gmail.com');
+INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(86,91,1,1,'2020-10-19','2020-10-19',12,1.5,10000000.00,11800000.00,11800000.00,NULL,NULL,10000000,'2020-10-22','2021-10-22','Good','Approved','Ingin bayar uang pangkal kuliah','2020-10-22','franky.sutanto93@gmail.com',NULL,NULL),(87,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,4602000.01,3,511333.33,5200000,'2020-10-24','2021-10-24','Good','Approved','ingin bayar uang pangkal','2020-10-24','jovitasutanto98@gmail.com','2020-10-25','jovitasutanto98@gmail.com');
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -507,7 +508,7 @@ BEGIN
 	where loan.acc_id = AccountId AND loan.LoanStatus = 'Approved'
 	LIMIT 1;
 
-	SELECT loan_id, acc_id, email, amount_without_interest, totalamount, Balance, PaidAmount, LoanStatus
+	SELECT loan_id, acc_id, email, periodtime, amount_without_interest, totalamount, Balance, PaidAmount, LoanStatus
     FROM loan
     WHERE loan.loan_id = LoanId AND loan.LoanStatus = 'Approved'
     LIMIT 1;
@@ -803,11 +804,12 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateManualPaidLoan`(in `email` varchar(55), in `PaidAmount` decimal(18,2))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateManualPaidLoan`(in `email` varchar(55), in `InstallmentNumber` int(100),  in `PaidAmount` decimal(18,2))
 BEGIN
 
 	Declare AccountId int default 0;
 	Declare LoanId int default 0;
+    Declare InvoiceId int default 0; 
 
 	SELECT acc_id into AccountId
 	FROM account
@@ -818,14 +820,27 @@ BEGIN
 	where loan.acc_id = AccountId AND loan.LoanStatus = 'Approved'
     LIMIT 1;
 
-  IF(ROW_COUNT() > 0) THEN
+  IF(ROW_COUNT() > 0 AND InstallmentNumber != 0) THEN
 	UPDATE loan
 	SET loan.PaidAmount = PaidAmount,
 	loan.Balance = loan.Balance - PaidAmount,
     loan.LoanStatus = CASE WHEN loan.Balance < 0.5 THEN 'Done' ELSE loan.LoanStatus END,
+    loan.PaidAmountCount = InstallmentNumber,
     loan.UpdatedAt = CURDATE(),
     loan.UpdatedBy = email
 	WHERE loan.loan_id = LoanId;
+    
+    SELECT invoice_id into InvoiceId
+	FROM invoice
+	WHERE invoice.InstallmentNumber = InstallmentNumber
+	AND invoice.Loan_id = LoanId;
+
+    UPDATE invoice
+    SET Status = 'Paid',
+	loan.UpdatedAt = CURDATE(),
+    loan.UpdatedBy = email
+    WHERE invoice.invoice_id = InvoiceId;
+    
   END IF;
 END ;;
 DELIMITER ;
@@ -990,4 +1005,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-25  0:02:32
+-- Dump completed on 2020-10-25 12:09:59
