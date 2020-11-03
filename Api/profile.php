@@ -15,7 +15,7 @@ $ImageSelfie=$data['ImageSelfie'];
 $StatusMarriage=$data['StatusMarriage'];
 $Education=$data['Education'];
 $TaxID=$data['TaxID'];
-$ImageFamilyMemberCard=$data['ImageFamilyMemberCard'];
+$ImageFamilyMemberCard=$data['ImageFamilyMemberCard'];;
 $Occupation=$data['Occupation'];
 $Fields=$data['Fields'];
 $Position=$data['Position'];
@@ -46,8 +46,8 @@ $Relationship=$data['Relationship'];
 //$idcardnumber='12344556';
 //$placeofbirth='Jakarta';
 //$dateofbirth='1993-08-16';
-//$gender='L';
-//$religion='Kristen';
+//$Gender='L';
+//$Religion='Kristen';
 //$ImageKTP=null;
 //$ImageSelfie=null;
 //$StatusMarriage='Not Married';
@@ -81,11 +81,11 @@ $Relationship=$data['Relationship'];
 //$Relationship='No';
 
 if($ImageKTP != null){
-    $target_dir = 'uploads/';
-    $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
+
+    $target_file = $target_dir . basename($_FILES['ImageKTP']['name']);
 
     $status = array();
-    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
+    if (move_uploaded_file($_FILES['ImageKTP']['tmp_name'], $target_file)) {
         $status['kode']=1;
         $status['deskripsi']='upload success';
         $ImageKTP = $target_file ;
@@ -96,6 +96,37 @@ if($ImageKTP != null){
     }
 }
 
+if($ImageSelfie != null){
+    $target_dir = 'uploads/';
+    $target_file = $target_dir . basename($_FILES['ImageSelfie']['name']);
+
+
+    if (move_uploaded_file($_FILES['ImageSelfie']['tmp_name'], $target_file)) {
+        $status['kode']=1;
+        $status['deskripsi']='upload success';
+        $ImageSelfie = $target_file ;
+    } else {
+        $status['kode']=0;
+        $status['deskripsi']='upload failed';
+        $ImageSelfie = null;
+    }
+}
+
+if($ImageFamilyMemberCard != null){
+    $target_dir = 'uploads/';
+    $target_file = $target_dir . basename($_FILES['ImageFamilyMemberCard']['name']);
+
+    $status = array();
+    if (move_uploaded_file($_FILES['ImageFamilyMemberCard']['tmp_name'], $target_file)) {
+        $status['kode']=1;
+        $status['deskripsi']='upload success';
+        $ImageSelfie = $target_file ;
+    } else {
+        $status['kode']=0;
+        $status['deskripsi']='upload failed';
+        $ImageFamilyMemberCard = null;
+    }
+}
 
 // get database connection
 $database = new Database();
