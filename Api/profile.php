@@ -80,51 +80,84 @@ $Relationship=$data['Relationship'];
 //$Phone='0812123';
 //$Relationship='No';
 
-if($ImageKTP != null){
-
-    $target_file = $target_dir . basename($_FILES['ImageKTP']['name']);
-
+if($ImageKTP == null) {
     $status = array();
-    if (move_uploaded_file($_FILES['ImageKTP']['tmp_name'], $target_file)) {
-        $status['kode']=1;
-        $status['deskripsi']='upload success';
-        $ImageKTP = $target_file ;
-    } else {
-        $status['kode']=0;
-        $status['deskripsi']='upload failed';
-        $ImageKTP = null;
+
+    if (is_uploaded_file($_FILES["ImageKTP"]["name"])) {
+        $tmp_file = $_FILES["ImageKTP"]["tmp_name"];
+        $upload_dir = "../uploads/";
+
+        // Generating random image name each time so image name will not be same .
+        $upload_dir = $upload_dir . "/". "ImageKTP" .  ".jpeg";
+        if (move_uploaded_file($tmp_file, $upload_dir)) {
+            $sql = "UPDATE profile set ImageKTP = ('$upload_dir')";
+            $stmt = $database->prepare($sql);
+            if ($stmt->execute()) {
+                $status['kode'] = 1;
+                $status['deskripsi'] = 'upload success';
+                $status['ImageKTP'] = $upload_dir;
+            } else {
+                $status['kode'] = 0;
+                $status['deskripsi'] = 'upload failed';
+                $ImageKTP = null;
+            }
+
+        }
+
     }
 }
 
-if($ImageSelfie != null){
-    $target_dir = 'uploads/';
-    $target_file = $target_dir . basename($_FILES['ImageSelfie']['name']);
+if($ImageSelfie == null) {
 
+    $status = array();
+    if (is_uploaded_file($_FILES["ImageSelfie"]["tmp_name"])) {
+        $tmp_file = $_FILES["ImageSelfie"]["tmp_name"];
+        $upload_dir = "../uploads/";
 
-    if (move_uploaded_file($_FILES['ImageSelfie']['tmp_name'], $target_file)) {
-        $status['kode']=1;
-        $status['deskripsi']='upload success';
-        $ImageSelfie = $target_file ;
-    } else {
-        $status['kode']=0;
-        $status['deskripsi']='upload failed';
-        $ImageSelfie = null;
+        // Generating random image name each time so image name will not be same .
+        $upload_dir = $upload_dir . "/". "ImageSelfie" .  ".jpeg";
+        if (move_uploaded_file($tmp_file, $upload_dir)) {
+            $sql = "UPDATE profile set ImageSelfie = ('$upload_dir')";
+            $stmt = $database->prepare($sql);
+            if ($stmt->execute()) {
+                $status['kode'] = 1;
+                $status['deskripsi'] = 'upload success';
+                $status['ImageSelfie'] = $upload_dir;
+            } else {
+                $status['kode'] = 0;
+                $status['deskripsi'] = 'upload failed';
+                $ImageSelfie = null;
+            }
+
+        }
+
     }
 }
 
-if($ImageFamilyMemberCard != null){
-    $target_dir = 'uploads/';
-    $target_file = $target_dir . basename($_FILES['ImageFamilyMemberCard']['name']);
+if($ImageFamilyMemberCard == null) {
 
     $status = array();
-    if (move_uploaded_file($_FILES['ImageFamilyMemberCard']['tmp_name'], $target_file)) {
-        $status['kode']=1;
-        $status['deskripsi']='upload success';
-        $ImageSelfie = $target_file ;
-    } else {
-        $status['kode']=0;
-        $status['deskripsi']='upload failed';
-        $ImageFamilyMemberCard = null;
+    if (is_uploaded_file($_FILES["ImageFamilyMemberCard"]["tmp_name"])) {
+        $tmp_file = $_FILES["ImageFamilyMemberCard"]["tmp_name"];
+        $upload_dir = "../uploads/";
+
+        // Generating random image name each time so image name will not be same .
+        $upload_dir = $upload_dir . "/". "ImageFamilyMemberCard" .  ".jpeg";
+        if (move_uploaded_file($tmp_file, $upload_dir)) {
+            $sql = "UPDATE profile set ImageFamilyMemberCard = ('$upload_dir')";
+            $stmt = $database->prepare($sql);
+            if ($stmt->execute()) {
+                $status['kode'] = 1;
+                $status['deskripsi'] = 'upload success';
+                $status['ImageFamilyMemberCard'] = $upload_dir;
+            } else {
+                $status['kode'] = 0;
+                $status['deskripsi'] = 'upload failed';
+                $ImageSelfie = null;
+            }
+
+        }
+
     }
 }
 
