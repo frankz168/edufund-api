@@ -4,14 +4,14 @@ include_once '../Database/database.php';
 include_once '../Controller/loan.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
-$email=$data['email'];
-$InstallmentNumber = $data['InstallmentNumber'];
-$PaidAmount = $data['PaidAmount'];
+//$email=$data['email'];
+//$InstallmentNumber = $data['InstallmentNumber'];
+//$PaidAmount = $data['PaidAmount'];
 
 
-//$email="jovitasutanto98@gmail.com";
-//$InstallmentNumber = 1;
-//$PaidAmount = "511333.33";
+$email="jovitasutanto98@gmail.com";
+$InstallmentNumber = 48;
+$PaidAmount = "645000.00";
 
 // get database connection
 $database = new Database();
