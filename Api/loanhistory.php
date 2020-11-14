@@ -5,7 +5,7 @@ include_once '../Controller/loan.php';
 
 // get data from query string api json
 $email=$_GET['email'];
-//$email="franky.sutanto93@gmail.com";
+//$email="jovitasutanto97@gmail.com";
 
 
 

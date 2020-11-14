@@ -4,7 +4,7 @@ include_once '../Controller/users.php';
 include_once '../Controller/common.php';
 /*$email=$data['email'];*/
 
-//$email = 'franky.sutanto93@gmail.com';
+//$email = 'jovitasutanto97@gmail.com';
 
 $url=$_SERVER['REQUEST_URI'];
 $url_components = parse_url($url);

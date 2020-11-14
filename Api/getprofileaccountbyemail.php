@@ -5,7 +5,7 @@ include_once '../Controller/users.php';
 
 // get data from query string api json
 $email=$_GET['email'];
-//$email = 'franky.sutanto93@gmail.com';
+//$email = 'jovita.sutanto97@gmail.com';
 
 // get database connection
 $database = new Database();

@@ -10,7 +10,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 
 $email="jovitasutanto98@gmail.com";
-$InstallmentNumber = 48;
+$InstallmentNumber = 0;
 $PaidAmount = "645000.00";
 
 // get database connection

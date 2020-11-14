@@ -42,7 +42,7 @@ $Name=$data['Name'];
 $Phone=$data['Phone'];
 $Relationship=$data['Relationship'];
 
-//$email='franky.sutanto93@gmail.com';
+//$email='jovitasutanto97@gmail.com';
 //$idcardnumber='12344556';
 //$placeofbirth='Jakarta';
 //$dateofbirth='1993-08-16';
@@ -76,9 +76,9 @@ $Relationship=$data['Relationship'];
 //$ResidentialStatus='Active';
 //$Duration='20';
 //$ProofOfResidence='Test';
-//$Name='Jovita';
+//$Name='Jess';
 //$Phone='0812123';
-//$Relationship='No';
+//$Relationship='Cousin';
 
 if($ImageKTP == null) {
     $status = array();

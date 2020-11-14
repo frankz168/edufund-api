@@ -6,7 +6,7 @@ include_once '../Controller/users.php';
 // get data from query string api json
 $email=$_GET['email'];
 $password=$_GET['password'];
-//$email = 'franky.sutanto93@gmail.com';
+//$email = 'jovitasutanto97@gmail.com';
 //$password = 'admin123';
 
 //decryption sha256 password

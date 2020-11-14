@@ -1,6 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `edufund` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `edufund`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
 --
 -- Host: 127.0.0.1    Database: edufund
 -- ------------------------------------------------------
@@ -31,7 +29,7 @@ CREATE TABLE `account` (
   `phone_number` varchar(55) NOT NULL,
   `status` varchar(55) NOT NULL,
   PRIMARY KEY (`acc_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +38,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'angela123','angela@gmail.com','89743232','Active'),(2,'jacky123','jacky@gmail.com','89632332','Active'),(5,'33b2c413c2db862b456d183bc1af81d79be6a693013dc5aef66e5e9','cloud@gmail.com','124','Active'),(6,'59a0851423c3bed7438fe2c10f2a126a6c95c8ba600ceba6a16d443','jovita.sutanto97@gmail.com','215451677','Active'),(76,'admin123','squall93@gmail.com','12345','Disactive'),(77,'admin123','tidus93@gmail.com','12345','Disactive'),(84,'admin123','love21@gmail.com','12345877','Disactive'),(85,'admin123','love22@gmail.com','123458727','Disactive'),(86,'admin123','love223@gmail.com','1234587277','Disactive'),(91,'9a365b0597e198ceac41966db1d6f47de66a86bb99e3e5a811c3030','franky.sutanto93@gmail.com','1242','Active'),(92,'e4671fcdc5509e8bf837bb19bb0eb77044aeaca9418fa9e49cf2376','jovitasutanto98@gmail.com','0895333940620','Active');
+INSERT INTO `account` VALUES (1,'e4671fcdc5509e8bf837bb19bb0eb77044aeaca9418fa9e49cf2376','jovitasutanto98@gmail.com','0895333940620','Active');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +65,7 @@ CREATE TABLE `address` (
   `Duration` int(10) NOT NULL,
   `ProofOfResidence` varchar(55) NOT NULL,
   PRIMARY KEY (`Address_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +74,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,0,0,0,'Jl Asoka Raya ',5,7,12,'Jakarta Barat','Kalideres',11880,'Pribadi',3,'sertifikat rumah'),(8,10,1,1,'Jakarta Barat',123456789,11850,11082,'Jakarta','test',11850,'Active',20,'Test'),(11,11,3,1,'Jalan dharma griya v',79,7,12,'Jakarta Barat','Semanan',11850,'Active',20,'House');
+INSERT INTO `address` VALUES (8,1,3,1,'Jalan dharma griya v',79,7,12,'Jakarta Barat','Semanan',11850,'Active',20,'House');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,7 +97,7 @@ CREATE TABLE `emergencycontact` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`ID_EmergencyContact`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +106,7 @@ CREATE TABLE `emergencycontact` (
 
 LOCK TABLES `emergencycontact` WRITE;
 /*!40000 ALTER TABLE `emergencycontact` DISABLE KEYS */;
-INSERT INTO `emergencycontact` VALUES (10,10,'Jovita','0812123','No','Active','2020-10-05','10','2020-10-05','10'),(13,11,'Jess','485859','Cousin','Active','2020-10-10','11','2020-10-10','11');
+INSERT INTO `emergencycontact` VALUES (8,1,'Jess','081915543389','Cousin','Active','2020-11-13','1','2020-11-13','1');
 /*!40000 ALTER TABLE `emergencycontact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +129,7 @@ CREATE TABLE `invoice` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +138,7 @@ CREATE TABLE `invoice` (
 
 LOCK TABLES `invoice` WRITE;
 /*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
-INSERT INTO `invoice` VALUES (13,86,1,983333.33,'Not Paid','2020-11-22','2020-10-22','91',NULL,NULL),(14,86,2,983333.33,'Not Paid','2020-12-22','2020-10-22','91',NULL,NULL),(15,86,3,983333.33,'Not Paid','2021-01-22','2020-10-22','91',NULL,NULL),(16,86,4,983333.33,'Not Paid','2021-02-22','2020-10-22','91',NULL,NULL),(17,86,5,983333.33,'Not Paid','2021-03-22','2020-10-22','91',NULL,NULL),(18,86,6,983333.33,'Not Paid','2021-04-22','2020-10-22','91',NULL,NULL),(19,86,7,983333.33,'Not Paid','2021-05-22','2020-10-22','91',NULL,NULL),(20,86,8,983333.33,'Not Paid','2021-06-22','2020-10-22','91',NULL,NULL),(21,86,9,983333.33,'Not Paid','2021-07-22','2020-10-22','91',NULL,NULL),(22,86,10,983333.33,'Not Paid','2021-08-22','2020-10-22','91',NULL,NULL),(23,86,11,983333.33,'Not Paid','2021-09-22','2020-10-22','91',NULL,NULL),(24,86,12,983333.33,'Not Paid','2021-10-22','2020-10-22','91',NULL,NULL),(25,87,1,511333.33,'Paid','2020-11-24','2020-10-24','92',NULL,NULL),(26,87,2,511333.33,'Paid','2020-12-24','2020-10-24','92',NULL,NULL),(27,87,3,511333.33,'Not Paid','2021-01-24','2020-10-24','92',NULL,NULL),(28,87,4,511333.33,'Not Paid','2021-02-24','2020-10-24','92',NULL,NULL),(29,87,5,511333.33,'Not Paid','2021-03-24','2020-10-24','92',NULL,NULL),(30,87,6,511333.33,'Not Paid','2021-04-24','2020-10-24','92',NULL,NULL),(31,87,7,511333.33,'Not Paid','2021-05-24','2020-10-24','92',NULL,NULL),(32,87,8,511333.33,'Not Paid','2021-06-24','2020-10-24','92',NULL,NULL),(33,87,9,511333.33,'Not Paid','2021-07-24','2020-10-24','92',NULL,NULL),(34,87,10,511333.33,'Not Paid','2021-08-24','2020-10-24','92',NULL,NULL),(35,87,11,511333.33,'Not Paid','2021-09-24','2020-10-24','92',NULL,NULL),(36,87,12,511333.33,'Not Paid','2021-10-24','2020-10-24','92',NULL,NULL);
+INSERT INTO `invoice` VALUES (1,1,1,645000.00,'Paid','2020-12-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(2,1,2,645000.00,'Paid','2021-01-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(3,1,3,645000.00,'Paid','2021-02-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(4,1,4,645000.00,'Paid','2021-03-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(5,1,5,645000.00,'Paid','2021-04-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(6,1,6,645000.00,'Paid','2021-05-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(7,1,7,645000.00,'Paid','2021-06-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(8,1,8,645000.00,'Paid','2021-07-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(9,1,9,645000.00,'Paid','2021-08-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(10,1,10,645000.00,'Paid','2021-09-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(11,1,11,645000.00,'Paid','2021-10-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(12,1,12,645000.00,'Paid','2021-11-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(13,1,13,645000.00,'Paid','2021-12-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(14,1,14,645000.00,'Paid','2022-01-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(15,1,15,645000.00,'Paid','2022-02-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(16,1,16,645000.00,'Paid','2022-03-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(17,1,17,645000.00,'Paid','2022-04-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(18,1,18,645000.00,'Paid','2022-05-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(19,1,19,645000.00,'Paid','2022-06-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(20,1,20,645000.00,'Paid','2022-07-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(21,1,21,645000.00,'Paid','2022-08-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(22,1,22,645000.00,'Paid','2022-09-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(23,1,23,645000.00,'Paid','2022-10-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(24,1,24,645000.00,'Paid','2022-11-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(25,1,25,645000.00,'Paid','2022-12-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(26,1,26,645000.00,'Paid','2023-01-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(27,1,27,645000.00,'Paid','2023-02-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(28,1,28,645000.00,'Paid','2023-03-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(29,1,29,645000.00,'Paid','2023-04-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(30,1,30,645000.00,'Paid','2023-05-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(31,1,31,645000.00,'Paid','2023-06-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(32,1,32,645000.00,'Paid','2023-07-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(33,1,33,645000.00,'Paid','2023-08-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(34,1,34,645000.00,'Paid','2023-09-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(35,1,35,645000.00,'Paid','2023-10-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(36,1,36,645000.00,'Paid','2023-11-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(37,1,37,645000.00,'Paid','2023-12-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(38,1,38,645000.00,'Paid','2024-01-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(39,1,39,645000.00,'Paid','2024-02-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(40,1,40,645000.00,'Paid','2024-03-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(41,1,41,645000.00,'Paid','2024-04-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(42,1,42,645000.00,'Paid','2024-05-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(43,1,43,645000.00,'Paid','2024-06-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(44,1,44,645000.00,'Paid','2024-07-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(45,1,45,645000.00,'Paid','2024-08-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(46,1,46,645000.00,'Paid','2024-09-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(47,1,47,645000.00,'Paid','2024-10-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com'),(48,1,48,645000.00,'Paid','2024-11-10','2020-11-10','1','2020-11-10','jovitasutanto98@gmail.com');
 /*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +174,7 @@ CREATE TABLE `loan` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`Loan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +183,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (83,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(84,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(85,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,6136000.00,NULL,NULL,5200000,'2020-10-18','2021-10-18','Good','Done','ingin bayar uang pangkal','2020-10-18','jovitasutanto98@gmail.com',NULL,NULL),(86,91,1,1,'2020-10-19','2020-10-19',12,1.5,10000000.00,11800000.00,11800000.00,NULL,NULL,10000000,'2020-10-22','2021-10-22','Good','Approved','Ingin bayar uang pangkal kuliah','2020-10-22','franky.sutanto93@gmail.com',NULL,NULL),(87,92,1,1,'2020-10-10','2020-10-10',12,1.5,5200000.00,6136000.00,4602000.01,3,511333.33,5200000,'2020-10-24','2021-10-24','Good','Approved','ingin bayar uang pangkal','2020-10-24','jovitasutanto98@gmail.com','2020-10-25','jovitasutanto98@gmail.com');
+INSERT INTO `loan` VALUES (1,1,1,1,'2020-11-12','2020-11-12',48,1.5,18000000.00,30960000.00,0.00,48,645000.00,18000000,'2020-11-10','2024-11-10','Good','Done','Ingin mengajukan biaya kuliah','2020-11-10','jovitasutanto98@gmail.com','2020-11-10','jovitasutanto98@gmail.com');
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,17 +255,17 @@ DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile` (
   `profile_id` int(10) NOT NULL AUTO_INCREMENT,
   `acc_id` int(11) NOT NULL,
-  `idcardnumber` varchar(16) NOT NULL,
+  `idcardnumber` varchar(16) CHARACTER SET utf8 NOT NULL,
   `placeofbirth` varchar(50) DEFAULT NULL,
   `dateofbirth` date DEFAULT NULL,
   `Gender` enum('L','P') DEFAULT NULL,
   `Religion` enum('Kristen','Katolik','Islam','Hindu','Buddha') DEFAULT NULL,
-  `ImageKTP` varchar(55) DEFAULT NULL,
-  `ImageSelfie` varchar(55) DEFAULT NULL,
+  `ImageKTP` longtext CHARACTER SET utf8 NOT NULL,
+  `ImageSelfie` longtext CHARACTER SET utf8 NOT NULL,
   `StatusMarriage` enum('Married','Not Married') DEFAULT NULL,
   `Education` enum('D3','S1','S2','S3') DEFAULT NULL,
   `TaxID` tinyint(11) DEFAULT NULL,
-  `ImageFamilyMemberCard` varchar(55) DEFAULT NULL,
+  `ImageFamilyMemberCard` longtext CHARACTER SET utf8 NOT NULL,
   `Occupation` varchar(55) DEFAULT NULL,
   `Fields` varchar(20) DEFAULT NULL,
   `Position` varchar(25) DEFAULT NULL,
@@ -283,7 +281,7 @@ CREATE TABLE `profile` (
   `UpdatedAt` date DEFAULT NULL,
   `UpdatedBy` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`profile_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -292,7 +290,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (3,83,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(4,85,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-01-01','admin',NULL,NULL),(5,86,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-27','love223@gmail.com',NULL,NULL),(6,87,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(7,88,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-02','franky.sutanto93@gmail.',NULL,NULL),(8,89,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','franky.sutanto93@gmail.com',NULL,NULL),(9,90,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-10-03','frankys.sutanto93@gmail.com',NULL,NULL),(10,91,'12344556','Jakarta','1993-08-16','L','Kristen','','','Not Married','S1',1,'','Indonesia','test','IT','Active','test','test','test','test','Data','Active','2020-10-03','franky.sutanto93@gmail.com','2020-10-05','10'),(11,92,'3173044410970002','Jakarta','1997-10-04','P','Kristen','...','...','Not Married','S1',1,'...','Indonesia','WNI','Technology','Intern','Internship','1000000','Store','1000000','Data','Active','2020-10-10','jovitasutanto98@gmail.com','2020-10-10','11');
+INSERT INTO `profile` VALUES (1,1,'3173044410970002','Jakarta','1997-11-04','P','Kristen','file:/data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FEdufundMobileNew-2ab8f886-79ea-49e4-adb1-d20e477003bb/ImagePicker/c3a4f457-624e-47d0-9564-d8f0a509c089.jpg','file:/data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FEdufundMobileNew-2ab8f886-79ea-49e4-adb1-d20e477003bb/ImagePicker/66bd90ef-0d72-465c-9534-d41563f914e2.jpg','Not Married','S1',1,'file:/data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FEdufundMobileNew-2ab8f886-79ea-49e4-adb1-d20e477003bb/ImagePicker/e8bb08b3-6b49-4652-9e3a-a7688cc05f5d.jpg','Indonesia','Technology','Staff','Intern','Internship','1000000','Store','1500000','Data','Active','2020-11-10','jovitasutanto98@gmail.com','2020-11-13','jovitasutanto98@gmail.com');
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,33 +320,6 @@ LOCK TABLES `province` WRITE;
 /*!40000 ALTER TABLE `province` DISABLE KEYS */;
 INSERT INTO `province` VALUES (1,'DKI Jakarta','2020-08-19','SYSTEM','0000-00-00',''),(2,'Jawa Barat','2020-08-19','SYSTEM','0000-00-00',''),(3,'Jawa Tengah','2020-10-14','SYSTEM','0000-00-00',''),(4,'Jawa Timur','2020-10-14','SYSTEM','0000-00-00','');
 /*!40000 ALTER TABLE `province` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `simulation_helper`
---
-
-DROP TABLE IF EXISTS `simulation_helper`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `simulation_helper` (
-  `simulation_id` int(11) NOT NULL,
-  `acc_id` int(4) DEFAULT NULL,
-  `balance` decimal(18,2) DEFAULT NULL,
-  `principal` decimal(18,2) DEFAULT NULL,
-  `interest` decimal(18,2) DEFAULT NULL,
-  `installments` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`simulation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `simulation_helper`
---
-
-LOCK TABLES `simulation_helper` WRITE;
-/*!40000 ALTER TABLE `simulation_helper` DISABLE KEYS */;
-/*!40000 ALTER TABLE `simulation_helper` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -836,9 +807,9 @@ BEGIN
 	AND invoice.Loan_id = LoanId;
 
     UPDATE invoice
-    SET Status = 'Paid',
-	loan.UpdatedAt = CURDATE(),
-    loan.UpdatedBy = email
+    SET invoice.Status = 'Paid',
+	invoice.UpdatedAt = CURDATE(),
+    invoice.UpdatedBy = email
     WHERE invoice.invoice_id = InvoiceId;
     
   END IF;
@@ -859,17 +830,17 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateProfileAccount`(IN `email` VARCHAR(55), 
-IN `idcardnumber` INT(16), 
+IN `idcardnumber` NVARCHAR(16), 
 IN `placeofbirth` VARCHAR(50),
 IN `dateofbirth` DATE,
 IN `Gender` ENUM('L','P'),
 IN `Religion` ENUM('Kristen','Katolik','Islam','Hindu','Buddha'),
-IN `ImageKTP` VARCHAR(55),
-IN `ImageSelfie` VARCHAR(55),
+IN `ImageKTP` LONGTEXT,
+IN `ImageSelfie` LONGTEXT,
 IN `StatusMarriage` ENUM('Married','Not Married'),
 IN `Education` ENUM('D3','S1','S2','S3'),
 IN `TaxID` TINYINT(11), 
-IN `ImageFamilyMemberCard` VARCHAR(55),
+IN `ImageFamilyMemberCard` LONGTEXT,
 IN `Occupation` VARCHAR(50),
 IN `Fields` VARCHAR(20),
 IN `Position` VARCHAR(25),
@@ -1005,4 +976,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-25 12:09:59
+-- Dump completed on 2020-11-14 14:50:26
